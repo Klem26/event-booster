@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Event Booster</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Event Booster</title>
-</head>
+  <body>
+    <div><p>Test1: Text</p></div>
+    <button type="button" class="btn-service" data-modal-open>
+      Show modal
+    </button>
 
-<body>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <!-- <div class="close-btn"> -->
+        <button class="close-icon" data-modal-close>
+          <svg class="close-icons-svg">
+            <use href="./icons/symbol-defs.svg#icon-vector"></use>
+          </svg>
+        </button>
+        <!-- </div> -->
+        <div><p>Form content</p></div>
+      </div>
+    </div>
 
-</body>
-
+    <div><p>Test1: Text</p></div>
+  </body>
 </html>
