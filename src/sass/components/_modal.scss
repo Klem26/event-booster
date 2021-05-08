@@ -66,8 +66,55 @@
   transition: fill $timing-function;
 }
 
-// .close-btn {
-//   position: absolute;
-//   right: 8px;
-//   top: 8px;
+.modal-content {
+  position: absolute;
+  left: 450px;
+  top: 235px;
+}
+
+.modal-head {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.21;
+  color: #dc56c5;
+  margin-top: 0px;
+  margin-bottom: 7px;
+}
+
+// .info-ticket {
+//   display: flex;
 // }
+
+.modal-btn {
+  width: 145px;
+  height: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  border-radius: 5px;
+  margin-bottom: 31px;
+}
+.modal-btn:hover,
+.modal-btn:focus {
+  background-color: #4c00fe;
+  color: #ffffff;
+  outline: none;
+  border: 0;
+  transition: background-color var(--timing-function),
+    color var(--timing-function);
+}
+
+.text-modal {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.22;
+  color: #0e0e0e;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
