@@ -1,21 +1,30 @@
-const API_KEY = 'ZI8VJZ1lpyk8oxNrgGrAocihwMcQZGLY';
+const API_KEY = 'qE8iBnVwihSK4QSH4hL5UNRfjujJpVDl';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
 
 export default class EventsApiService {
   constructor() {
     this.searchQuery = '';
     this._page = 0;
+    this.totalElements = 0;
+    this.totalPages = 0;
   }
 
   // Приносит что угодно по url
   goFetch(url) {
-    return fetch(url).then(response => {
-      if (!response.ok) {
-        throw new Error();
-      }
+    return fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error();
+        }
 
-      return response.json();
-    });
+        return response.json();
+      })
+      .then(({ page, _embedded }) => {
+        this.totalElements = page.totalElements;
+        this.totalPages = page.totalPages;
+
+        return _embedded.events;
+      });
   }
 
   // События при загрузке страницы
@@ -44,6 +53,19 @@ export default class EventsApiService {
     return this.goFetch(
       `${BASE_URL}events.json?countryCode=${countryCode}&page=${this._page}&apikey=${API_KEY}`,
     );
+  }
+
+  // Получить картинки события по id
+  fetchEventImage(id) {
+    return fetch(`${BASE_URL}events/${id}/images.json?apikey=${API_KEY}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error();
+        }
+
+        return response.json();
+      })
+      .then(response => response.images);
   }
 
   // Переключение страниц (для пагинации)
