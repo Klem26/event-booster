@@ -6,85 +6,109 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Event Booster</title>
   </head>
+<body>
+  <header>
+    <h1>Find best events around the world</h1>
+    <form>
+      <input type="text" placeholder="Start searching" name="searchQuery" />
+      <select name="country">
+        <option selected disabled>Choose country</option>
+        <option value="US">United States</option>
+        <option value="CA">Canada</option>
+        <option value="BR">Brazil</option>
+        <option value="AU">Australia</option>
+        <option value="GB">Great Britain</option>
+        <option value="FR">France</option>
+        <option value="DE">Germany</option>
+        <option value="IT">Italia</option>
+        <option value="CN">China</option>
+        <option value="UA">Ukraine</option>
+      </select>
+    </form>
+  </header>
 
-  <body>
-    <div><p>Test1: Text</p></div>
-    <button type="button" class="btn-service" data-modal-open>
-      Show modal
-    </button>
+  <main>
+    CARDS
+  </main>
 
-    <div class="backdrop is-hidden" data-modal>
-      <div class="modal">
-        <button class="close-icon" data-modal-close>
-          <svg class="close-icons-svg">
-            <use href="./icons/sprite-icons.svg#icon-vector"></use>
-          </svg>
-        </button>
-        <div class="img-small-modal">
-        <img src="./icons/img/pic-circle.png" alt="событие" />
-        </div>
+  <button type="button" class="btn-service" data-modal-open>
+    TEST: Show modal
+  </button>
 
-      <div class="ticket">
-        <div class="img-large-modal">
-        <img src="./icons/img/pic.jpg"  alt="событие" />
-        </div>
+  <div class="backdrop is-hidden" data-modal>
+    <div class="modal">
+      <button class="close-icon" data-modal-close>
+        <svg class="close-icons-svg">
+          <use href="./icons/sprite-icons.svg#icon-vector"></use>
+        </svg>
+      </button>
+      <div class="img-small-modal">
+      <img src="./icons/img/pic-circle.png" alt="событие" />
+      </div>
 
-        <ul class="modal-content list">
+    <div class="ticket">
+      <div class="img-large-modal">
+      <img src="./icons/img/pic.jpg"  alt="событие" />
+      </div>
 
-          <li class="info">
-            <h3 class="modal-head">INFO</h3>
-            <p class="text-modal">
-              Atlas Weekend is the largest music festival in Ukraine.More than 200
-              artists will create a proper music festival atmosphere on 10 stages
-            </p>
-          </li>
+      <ul class="modal-content list">
 
-         <li class="info">
-            <h3 class="modal-head">WHEN</h3>
-            <p class="text-modal">2021-06-09</br>20:00 (Kyiv/Ukraine)</p>
-         </li>
+        <li class="info">
+          <h3 class="modal-head">INFO</h3>
+          <p class="text-modal">
+            Atlas Weekend is the largest music festival in Ukraine.More than 200
+            artists will create a proper music festival atmosphere on 10 stages
+          </p>
+        </li>
 
-         <li class="info">
-            <h3 class="modal-head">WHERE</h3>
-            <p class="text-modal">Kyiv, Ukraine</br>VDNH</p>
-         </li>
+        <li class="info">
+          <h3 class="modal-head">WHEN</h3>
+          <p class="text-modal">2021-06-09</br>20:00 (Kyiv/Ukraine)</p>
+        </li>
 
-         <li class="info">
-             <h3 class="modal-head">WHO</h3>
-             <p class="text-modal">The Black Eyed Peas</p>
-         </li>
+        <li class="info">
+          <h3 class="modal-head">WHERE</h3>
+          <p class="text-modal">Kyiv, Ukraine</br>VDNH</p>
+        </li>
 
-         <li class="info">
-              <h3 class="modal-head">PRICES</h3>
+        <li class="info">
+            <h3 class="modal-head">WHO</h3>
+            <p class="text-modal">The Black Eyed Peas</p>
+        </li>
 
-              <div class="info-ticket standart-ticket">
-                 <svg class="ticket-icons-svg">
-                   <use href="./icons/sprite-icons.svg#icon-ticket"></use>
-                 </svg>
-                 <p class="text-modal">Standart 300-500 UAH</p>
-              </div>
+        <li class="info">
+            <h3 class="modal-head">PRICES</h3>
 
-              <button class="modal-btn ticket-btn">BUY TICKETS</button>
-              
-              <div class="info-ticket vip-ticket">
-                 <svg class="ticket-icons-svg">
+            <div class="info-ticket standart-ticket">
+                <svg class="ticket-icons-svg">
                   <use href="./icons/sprite-icons.svg#icon-ticket"></use>
-                 </svg>
-                 <p class="text-modak">VIP 1000-1500 UAH</p>
-              </div>
-          </li>
+                </svg>
+                <p class="text-modal">Standart 300-500 UAH</p>
+            </div>
 
-              <button class="modal-btn vip-btn">BUY TICKETS</button>
-          
-         </ul>
-        </div>
+            <button class="modal-btn ticket-btn">BUY TICKETS</button>
+            
+            <div class="info-ticket vip-ticket">
+                <svg class="ticket-icons-svg">
+                <use href="./icons/sprite-icons.svg#icon-ticket"></use>
+                </svg>
+                <p class="text-modak">VIP 1000-1500 UAH</p>
+            </div>
+        </li>
 
-        <div class="author">
-              <button class="modal-btn author-btn">MORE FROM THIS AUTHOR</button>
-        </div>
+            <button class="modal-btn vip-btn">BUY TICKETS</button>
+        
+        </ul>
+      </div>
+
+      <div class="author">
+            <button class="modal-btn author-btn">MORE FROM THIS AUTHOR</button>
       </div>
     </div>
+  </div>
 
-    <div><p>Test1: Text</p></div>
-  </body>
+  <footer>
+    FOOTER
+  </footer>
+</body>
 </html>
