@@ -72,6 +72,12 @@
   margin-right: 13px;
 }
 
+.list {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
 .modal-content {
   margin: 0;
 }
@@ -92,7 +98,7 @@
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 41px;
-  margin-bottom: 45px;
+  padding-bottom: 45px;
 }
 
 .info-ticket {
@@ -111,6 +117,7 @@
   border-color: #4c00fe;
   border-radius: 5px;
   margin-bottom: 31px;
+  padding: 0;
 }
 .modal-btn:hover,
 .modal-btn:focus {
@@ -124,10 +131,11 @@
 
 .author-btn {
   width: 255px;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  // padding-bottom: 62px;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-btn.vip-btn {
   margin: 0;
 }
 
