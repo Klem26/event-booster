@@ -1,41 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Event Booster</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Event Booster</title>
-</head>
+  <body>
+    <header>
+      <h1>Find best events around the world</h1>
+      <form>
+        <input type="text" placeholder="Start searching" name="searchQuery" />
+        <select name="country">
+          <option selected disabled>Choose country</option>
+          <option value="US">United States</option>
+          <option value="CA">Canada</option>
+          <option value="BR">Brazil</option>
+          <option value="AU">Australia</option>
+          <option value="GB">Great Britain</option>
+          <option value="FR">France</option>
+          <option value="DE">Germany</option>
+          <option value="IT">Italia</option>
+          <option value="CN">China</option>
+          <option value="UA">Ukraine</option>
+        </select>
+      </form>
+    </header>
 
-<body>
-  <header>
-    <h1>Find best events around the world</h1>
-    <form>
-      <input type="text" placeholder="Start searching" name="searchQuery" />
-      <select name="country">
-        <option selected disabled>Choose country</option>
-        <option value="US">United States</option>
-        <option value="CA">Canada</option>
-        <option value="BR">Brazil</option>
-        <option value="AU">Australia</option>
-        <option value="GB">Great Britain</option>
-        <option value="FR">France</option>
-        <option value="DE">Germany</option>
-        <option value="IT">Italia</option>
-        <option value="CN">China</option>
-        <option value="UA">Ukraine</option>
-      </select>
-    </form>
-  </header>
+    <main>
+      <div class="container_result">
+        <!-- Можно раскомментировать, накопипастить лишек и посмотреть стили -->
+        <!-- <ul class="events_list">
+          <li class="event_card">
+            <div class="thumb">
+              <img
+                src="http://shostka-flora.in.ua/_pu/1/52998314.jpg"
+                alt="{{name}}"
+              />
+            </div>
+            <p class="event-title">Title</p>
+            <p class="event-date">Date</p>
+            <p class="event-location">location</p>
+          </li>
+        </ul> -->
+      </div>
+    </main>
 
-  <main>
-    CARDS
-  </main>
-
-  <footer>
-    FOOTER
-  </footer>
-</body>
-
+    <footer>FOOTER</footer>
+  </body>
 </html>
