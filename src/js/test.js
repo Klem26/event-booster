@@ -1,4 +1,5 @@
 import EventsApiService from './api/EventsApiService';
+import notificationError from './notification-func';
 
 // Создаём экземпляр класса
 const eventsApiService = new EventsApiService();
@@ -51,3 +52,7 @@ eventsApiService.fetchRandomEvents().then(console.log).catch(console.log);
 // function createGallery(events) {
 //   ref.innerHtml = Template(events)
 // }
+
+
+
+
