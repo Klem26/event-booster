@@ -1,4 +1,5 @@
 import EventsApiService from './api/EventsApiService';
+import notificationError from './notification-func';
 
 // Создаём экземпляр класса
 const eventsApiService = new EventsApiService();
