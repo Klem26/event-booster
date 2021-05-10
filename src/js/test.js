@@ -5,18 +5,18 @@ import notificationError from './notification-func';
 const eventsApiService = new EventsApiService();
 
 // Список случайных событий
-// eventsApiService.fetchRandomEvents().then(console.log).catch(console.log);
+eventsApiService.fetchRandomEvents().then(console.log).catch(console.log);
 
 // Список событий по ключевому слову
-eventsApiService.query = 'music';
-eventsApiService.fetchEventsByKeyWord().then(console.log).catch(console.log);
+// eventsApiService.query = 'music';
+// eventsApiService.fetchEventsByKeyWord().then(console.log).catch(console.log);
 
 // Список событий по стране
 // eventsApiService.fetchEventsByCoutry('US').then(console.log).catch(console.log);
 
 // Событие по id
 eventsApiService
-  .fetchEventById('LvZ18bkUMW8Gy18ZlOozw')
+  .fetchEventById('LvZ18ba5GShwZz8ZRSmd0')
   .then(console.log)
   .catch(console.log);
 
