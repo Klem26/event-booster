@@ -1,136 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Event Booster</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <title>Event Booster</title>
-</head>
-
-<body>
-  <header>
-    <div class="container container-header">
-      <div class="logo">
-        <!-- Тут буде логотип -->
-      </div>
-      <h1 class="heading">Find best events around the world</h1>
-      <form class="search-form">
-        <label class="label-form">
-          <input class="search-input" type="text" placeholder="Start searching" name="search"/>
-            <span class="material-icons icon-loop">
-              search
-            </span>
-        </label>
-        <select name="country" class="search-country selected-country">
-          <option  selected disabled>Choose country</option>
-          <option value="US">United States</option>
-          <option value="CA">Canada</option>
-          <option value="DK">Denmark</option>
-          <option value="AU">Australia</option>
-          <option value="GB">Great Britain</option>
-          <option value="DE">Germany</option>
-          <option value="MX">Mexico</option>
-          <option value="NL">Netherlands</option>
-          <option value="CH">Switzerland</option>
-          <option value="ES">Spain</option>
-        </select>
-      </form>
-    </div>
-  </header>
-
-  <main>
-    <div class="container container-main">
-      <!-- Тут будуть картки -->
-      CARDS
-    </div>
-  </main>
-
-  <button type="button" class="btn-service" data-modal-open>
-    TEST: Show modal
-  </button>
-
-  <div class="backdrop is-hidden" data-modal>
-    <div class="modal">
-      <button class="close-icon" data-modal-close>
-        <svg class="close-icons-svg">
-          <use href="./icons/sprite-icons.svg#icon-vector"></use>
-        </svg>
-      </button>
-      <div class="img-small-modal">
-        <img src="./icons/img/pic-circle.png" alt="событие" />
-      </div>
-
-      <div class="ticket">
-        <div class="img-large-modal">
-          <img src="./icons/img/pic.jpg" alt="событие" />
+  <body>
+    <header>
+      <div class="container container-header">
+        <div class="logo">
+          <!-- Тут буде логотип -->
         </div>
-
-        <ul class="modal-content list">
-
-          <li class="info">
-            <h3 class="modal-head">INFO</h3>
-            <p class="text-modal">
-              Atlas Weekend is the largest music festival in Ukraine.More than 200
-              artists will create a proper music festival atmosphere on 10 stages
-            </p>
-          </li>
-
-          <li class="info">
-            <h3 class="modal-head">WHEN</h3>
-            <p class="text-modal">2021-06-09</br>20:00 (Kyiv/Ukraine)</p>
-          </li>
-
-          <li class="info">
-            <h3 class="modal-head">WHERE</h3>
-            <p class="text-modal">Kyiv, Ukraine</br>VDNH</p>
-          </li>
-
-          <li class="info">
-            <h3 class="modal-head">WHO</h3>
-            <p class="text-modal">The Black Eyed Peas</p>
-          </li>
-
-          <li class="info">
-            <h3 class="modal-head">PRICES</h3>
-
-            <div class="info-ticket standart-ticket">
-              <svg class="ticket-icons-svg">
-                <use href="./icons/sprite-icons.svg#icon-ticket"></use>
-              </svg>
-              <p class="text-modal">Standart 300-500 UAH</p>
-            </div>
-
-            <button class="modal-btn ticket-btn">BUY TICKETS</button>
-
-            <div class="info-ticket vip-ticket">
-              <svg class="ticket-icons-svg">
-                <use href="./icons/sprite-icons.svg#icon-ticket"></use>
-              </svg>
-              <p class="text-modak">VIP 1000-1500 UAH</p>
-            </div>
-          </li>
-
-          <button class="modal-btn vip-btn">BUY TICKETS</button>
-        </ul>
+        <h1 class="heading">Find best events around the world</h1>
+        <form class="search-form">
+          <label class="label-form">
+            <input
+              class="search-input"
+              type="text"
+              placeholder="Start searching"
+              name="search"
+            />
+            <span class="material-icons icon-loop"> search </span>
+          </label>
+          <select name="country" class="search-country selected-country">
+            <option selected disabled>Choose country</option>
+            <option value="US">United States</option>
+            <option value="CA">Canada</option>
+            <option value="DK">Denmark</option>
+            <option value="AU">Australia</option>
+            <option value="GB">Great Britain</option>
+            <option value="DE">Germany</option>
+            <option value="MX">Mexico</option>
+            <option value="NL">Netherlands</option>
+            <option value="CH">Switzerland</option>
+            <option value="ES">Spain</option>
+          </select>
+        </form>
       </div>
-      <div class="author">
-        <button class="modal-btn author-btn">MORE FROM THIS AUTHOR</button>
+    </header>
+
+    <main class="gallery-list">
+      <div class="container container-main">
+        <div
+          data-id="LvZ18bkUMW8Gy18ZlOozw"
+          class="test-card"
+          style="width: 300px; height: 300px; background-color: tomato"
+        >
+          Тестовая карточка для открытия модалки
+        </div>
       </div>
-    </div>
-  </div>
+    </main>
 
-  <footer class="container">
-    <div class="footer-container">
-      <span class="footer-text">
-        © 2021 | All Rights Reserved |
-        <a class="footer-link" href="https://goit.ua">Developed with &#10084;&#65039; by GoIT Students</a>
-      </span>
-    </div>
-  </footer>
-</body>
+    <footer class="container">
+      <div class="footer-container">
+        <span class="footer-text">
+          © 2021 | All Rights Reserved |
+          <a class="footer-link" href="https://goit.ua"
+            >Developed with &#10084;&#65039; by GoIT Students</a
+          >
+        </span>
+      </div>
+    </footer>
 
+    <div class="backdrop is-hidden"></div>
+  </body>
 </html>
