@@ -30,7 +30,7 @@ export default class EventsApiService {
   // События при загрузке страницы
   fetchRandomEvents() {
     return this.goFetch(
-      `${BASE_URL}events.json?size=20&page=${this._page}&apikey=${API_KEY}`,
+      `${BASE_URL}events.json?size=20&page=${this._page}&sort=random&apikey=${API_KEY}`,
     );
   }
 

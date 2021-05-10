@@ -8,17 +8,17 @@ const eventsApiService = new EventsApiService();
 eventsApiService.fetchRandomEvents().then(console.log).catch(console.log);
 
 // Список событий по ключевому слову
-// eventsApiService.query = 'art';
+// eventsApiService.query = 'music';
 // eventsApiService.fetchEventsByKeyWord().then(console.log).catch(console.log);
 
 // Список событий по стране
 // eventsApiService.fetchEventsByCoutry('US').then(console.log).catch(console.log);
 
 // Событие по id
-// eventsApiService
-//   .fetchEventById('LvZ18bAdUGQ0a38ZgzSwa')
-//   .then(console.log)
-//   .catch(console.log);
+eventsApiService
+  .fetchEventById('LvZ18bkUMW8Gy18ZlOozw')
+  .then(console.log)
+  .catch(console.log);
 
 // Список картинок конкретного события по id
 // eventsApiService
