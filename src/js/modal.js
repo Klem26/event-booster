@@ -16,8 +16,8 @@ function onOpenModal(e) {
 
   backdropRef.classList.remove('is-hidden');
 
-  const eventId = e.target.dataset.id;
-  eventCardMarkup(eventId);
+  const cardId = e.target.dataset.id;
+  renderCard(cardId);
 }
 
 function onCloseModal(e) {
@@ -26,7 +26,7 @@ function onCloseModal(e) {
   }
 }
 
-function eventCardMarkup(id) {
+function renderCard(id) {
   eventsApiService
     .fetchEventById(id)
     .then(modalTpl)
