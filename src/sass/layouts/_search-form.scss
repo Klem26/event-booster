@@ -1,59 +1,45 @@
-.container {
-  padding: 0 86px;
-  background-color: #000; //для blur когда будет bg  удалить
-  @media screen and(min-width:237px) and (max-width: 767px) {
-    padding: 0 25px;
+.search-form {
+  /*position: relative;
+  width: 100%;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 0px 112px;
+
+  @include breakpoint(tablet) {
+    flex-direction: row;
+    padding: 27px 0px 183px;
+  }
+
+  @include breakpoint(desktop) {
+    padding: 52px 0px 192px;
   }
 }
+
 .label-form {
   width: 270px;
   height: 40px;
-}
 
-.search-form {
-  position: relative;
-  display: flex;
-  padding: 27px 0 81px 0;
-  width: 100%;
-  justify-content: space-between;
-  @media screen and(min-width:237px) and (max-width: 767px) {
-    padding: 25px 0 52px 0;
-    justify-content: space-evenly;
+  @include breakpoint(non-tablet) {
+    margin-bottom: 25px;
   }
-}
 
-.search-country {
-  width: 270px;
-  height: 40px;
-  font-family: 'Montserrat';
-  background-color: $input-bg;
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  border: transparent;
-}
-.selected-country {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
-  color: $grey-text-color;
-  padding: 10px 30px;
+  @include breakpoint(tablet) {
+    margin-right: 30px;
+  }
 }
 
 .search-input {
   width: 270px;
   height: 40px;
   position: absolute;
-  //   left: 355px;
-  //   top: 214px;
-  font-family: 'Montserrat';
+  /*left: 355px;
+  top: 214px;*/
   background-color: $input-bg;
   backdrop-filter: blur(20px);
   border-radius: 20px;
   border: transparent;
   &::placeholder {
-    font-family: 'Montserrat';
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -65,10 +51,8 @@
   &:focus {
     outline-color: $grey-text-color;
   }
-  @media screen and(min-width:237px) and (max-width: 479px) {
-    margin-bottom: 25px;
-  }
 }
+
 .icon-loop {
   position: absolute;
   width: 12px;
@@ -77,4 +61,22 @@
   margin: 11px 230px;
   float: right;
   color: $grey-text-color;
+}
+
+.search-country {
+  width: 270px;
+  height: 40px;
+  background-color: $input-bg;
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: transparent;
+}
+
+.selected-country {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: $grey-text-color;
+  padding: 10px 30px;
 }
