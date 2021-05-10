@@ -1,7 +1,45 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+p,
+h1,
+ul {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
 img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include breakpoint(mobile) {
+    width: $mobile;
+  }
+
+  @include breakpoint(tablet) {
+    width: $tablet;
+    padding-left: 86px;
+    padding-right: 87px;
+  }
+
+  @include breakpoint(desktop) {
+    width: $desktop;
+    padding-left: 115px;
+    padding-right: 115px;
+  }
 }
 
 .visually-hidden {

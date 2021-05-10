@@ -1,7 +1,10 @@
-@import './utils/variables.scss';
-@import './base/common.scss';
+@import './utils/breakpoints';
+@import './utils/mixins';
+@import './utils/variables';
+@import './base/common';
 @import './components/button';
 @import './components/modal';
 @import './layouts/header';
-@import './layouts/search-form.scss';
-@import './utils/breakpoints.scss';
+@import './layouts/search-form';
+@import './layouts/main';
+@import './layouts/footer';
