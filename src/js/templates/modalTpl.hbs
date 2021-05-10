@@ -1,69 +1,65 @@
 {{#each this}}
 <div class="modal">
     <button class="close-btn" data-modal-close>
-        <svg class="close-icon">
+        <svg class="close-icon" width="17" height="17">
             <use href="./icons/sprite-icons.svg#icon-vector"></use>
         </svg>
     </button>
 
     <div class="modal-content">
-        <img class="img-small-modal" src={{posterUrl}} alt="событие" />
+        <img class="small-img-modal" src={{posterUrl}} alt="событие" />
 
         <div class="modal-box">
-            <div class="ticket">
-                <div class="img-large-modal">
-                    <img src={{posterUrl}} alt="событие" />
-                </div>
-
-                <ul class="modal-content list">
-
-                    <li class="info">
-                        <h3 class="modal-head">INFO</h3>
-                        <p class="text-modal">{{description}}</p>
-                    </li>
-
-                    <li class="info">
-                        <h3 class="modal-head">WHEN</h3>
-                        <p class="text-modal">{{dates.start.localDate}}</br>{{dates.start.localTime}}
-                            ({{dates.timezone}})
-                        </p>
-                    </li>
-
-                    <li class="info">
-                        <h3 class="modal-head">WHERE</h3>
-                        <p class="text-modal">{{place.city.name}}, {{place.country.name}}</br>{{place.address.line1}}
-                        </p>
-                    </li>
-
-                    <li class="info">
-                        <h3 class="modal-head">WHO</h3>
-                        <p class="text-modal">{{name}}</p>
-                    </li>
-
-                    <li class="info">
-                        <h3 class="modal-head">PRICES</h3>
-
-                        <div class="info-ticket standart-ticket">
-                            <svg class="ticket-icons-svg">
-                                <use href="./icons/sprite-icons.svg#icon-ticket"></use>
-                            </svg>
-                            <p class="text-modal">{{priceRanges.type}} {{priceRanges.min}}-{{priceRanges.max}}
-                                {{priceRanges.currency}}</p>
-                        </div>
-
-                        <button class="modal-btn ticket-btn">BUY TICKETS</button>
-
-                        <div class="info-ticket vip-ticket">
-                            <svg class="ticket-icons-svg">
-                                <use href="./icons/sprite-icons.svg#icon-ticket"></use>
-                            </svg>
-                            <p class="text-modak">VIP 1000-1500 UAH</p>
-                        </div>
-                    </li>
-
-                    <button class="modal-btn vip-btn">BUY TICKETS</button>
-                </ul>
+            <div class="large-img-box">
+                <img class="large-img" src={{posterUrl}} alt="событие" />
             </div>
+
+            <ul class="modal-list list">
+                <li class="modal-list-item">
+                    <h3 class="modal-list-title">INFO</h3>
+                    <p class="modal-text">{{description}}</p>
+                </li>
+
+                <li class="modal-list-item">
+                    <h3 class="modal-list-title">WHEN</h3>
+                    <p class="modal-text">{{dates.start.localDate}}</br>{{dates.start.localTime}}
+                        ({{dates.timezone}})
+                    </p>
+                </li>
+
+                <li class="modal-list-item">
+                    <h3 class="modal-list-title">WHERE</h3>
+                    <p class="modal-text">{{place.city.name}}, {{place.country.name}}</br>{{place.address.line1}}
+                    </p>
+                </li>
+
+                <li class="modal-list-item">
+                    <h3 class="modal-list-title">WHO</h3>
+                    <p class="modal-text">{{name}}</p>
+                </li>
+
+                <li class="modal-list-item">
+                    <h3 class="modal-list-title">PRICES</h3>
+                    
+                    <div class="ticket-box">
+                        <svg class="ticket-icon-svg">
+                            <use href="./icons/sprite-icons.svg#icon-ticket"></use>
+                        </svg>
+                        <p class="text-modal">{{priceRanges.type}} {{priceRanges.min}}-{{priceRanges.max}}
+                            {{priceRanges.currency}}</p>
+                        <button class="modal-btn">BUY TICKETS</button>
+                    </div>
+
+                    <div class="ticket-box">
+                        <svg class="ticket-icon-svg">
+                            <use href="./icons/sprite-icons.svg#icon-ticket"></use>
+                        </svg>
+                        <p class="text-modal">VIP 1000-1500 UAH</p>
+                        <button class="modal-btn">BUY TICKETS</button>
+                    </div>
+                </li>
+            </ul>
+
             <div class="author">
                 <a target="_blank" class="modal-btn author-btn">MORE FROM THIS AUTHOR</a>
             </div>
