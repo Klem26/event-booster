@@ -1,0 +1,50 @@
+.container-main {
+  background-color: yellow; /* якщо картинка не завантажиться */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../images/background-body-mobile.jpg);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/background-body-mobile@2x.jpg);
+  }
+
+  @media screen and (min-device-pixel-ratio: 3),
+    screen and (min-resolution: 288dpi),
+    screen and (min-resolution: 3dppx) {
+    background-image: url(../images/background-body-mobile@3x.jpg);
+  }
+
+  @include breakpoint(tablet) {
+    background-image: url(../images/background-body-tablet.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/background-body-tablet@2x.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: url(../images/background-body-tablet@3x.jpg);
+    }
+  }
+
+  @include breakpoint(desktop) {
+    background-image: url(../images/background-body-desktop.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/background-body-desktop@2x.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: url(../images/background-body-desktop@3x.jpg);
+    }
+  }
+}

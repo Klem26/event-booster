@@ -1,0 +1,83 @@
+.container-header {
+  background-color: green; /* якщо картинка не завантажиться */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../images/background-header-mobile.jpg);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/background-header-mobile@2x.jpg);
+  }
+
+  @media screen and (min-device-pixel-ratio: 3),
+    screen and (min-resolution: 288dpi),
+    screen and (min-resolution: 3dppx) {
+    background-image: url(../images/background-header-mobile@3x.jpg);
+  }
+
+  @include breakpoint(tablet) {
+    background-image: url(../images/background-header-tablet.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/background-header-tablet@2x.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: url(../images/background-header-tablet@3x.jpg);
+    }
+  }
+
+  @include breakpoint(desktop) {
+    background-image: url(../images/background-header-desktop.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/background-header-desktop@2x.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: url(../images/background-header-desktop@3x.jpg);
+    }
+  }
+}
+
+.heading {
+  width: 212px;
+  height: 122px; /* 44 + 78 */
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 900;
+  color: $accent;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 78px;
+
+  @include breakpoint(tablet) {
+    width: 353px;
+    height: 114px; /* 74 + 40 */
+    font-size: 30px;
+    line-height: 37px;
+    padding-top: 40px;
+  }
+
+  @include breakpoint(desktop) {
+    width: 590px;
+    height: 162px; /* 122 + 40 */
+    font-size: 50px;
+    line-height: 61px;
+  }
+}

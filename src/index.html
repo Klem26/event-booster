@@ -4,31 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <title>Event Booster</title>
   </head>
 
   <body>
     <header>
-      <h1>Find best events around the world</h1>
-      <form>
-        <input type="text" placeholder="Start searching" name="searchQuery" />
-        <select name="country">
-          <option selected disabled>Choose country</option>
-          <option value="US">United States</option>
-          <option value="CA">Canada</option>
-          <option value="BR">Brazil</option>
-          <option value="AU">Australia</option>
-          <option value="GB">Great Britain</option>
-          <option value="FR">France</option>
-          <option value="DE">Germany</option>
-          <option value="IT">Italia</option>
-          <option value="CN">China</option>
-          <option value="UA">Ukraine</option>
-        </select>
-      </form>
+      <div class="container container-header">
+        <div class="logo">
+          <!-- Тут буде логотип -->
+        </div>
+        <h1 class="heading">Find best events around the world</h1>
+        <form class="search-form">
+          <label class="label-form">
+            <input
+              class="search-input"
+              type="text"
+              placeholder="Start searching"
+              name="search"
+            />
+            <span class="material-icons icon-loop"> search </span>
+          </label>
+          <select name="country" class="search-country selected-country">
+            <option selected disabled>Choose country</option>
+            <option value="US">United States</option>
+            <option value="CA">Canada</option>
+            <option value="DK">Denmark</option>
+            <option value="AU">Australia</option>
+            <option value="GB">Great Britain</option>
+            <option value="DE">Germany</option>
+            <option value="MX">Mexico</option>
+            <option value="NL">Netherlands</option>
+            <option value="CH">Switzerland</option>
+            <option value="ES">Spain</option>
+          </select>
+        </form>
+      </div>
     </header>
 
-    <main>
+    <main class="gallery-list">
       <div class="container_result">
         <!-- Можно раскомментировать, накопипастить лишек и посмотреть стили -->
         <!-- <ul class="events_list">
@@ -45,8 +67,28 @@
           </li>
         </ul> -->
       </div>
+      <div class="container container-main">
+        <div
+          data-id="LvZ18bkUMW8Gy18ZlOozw"
+          class="test-card"
+          style="width: 300px; height: 300px; background-color: tomato"
+        >
+          Тестовая карточка для открытия модалки
+        </div>
+      </div>
     </main>
 
-    <footer>FOOTER</footer>
+    <footer class="container">
+      <div class="footer-container">
+        <span class="footer-text">
+          © 2021 | All Rights Reserved |
+          <a class="footer-link" href="https://goit.ua"
+            >Developed with &#10084;&#65039; by GoIT Students</a
+          >
+        </span>
+      </div>
+    </footer>
+
+    <div class="backdrop is-hidden"></div>
   </body>
 </html>
