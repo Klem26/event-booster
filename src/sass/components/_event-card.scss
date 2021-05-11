@@ -52,6 +52,7 @@
     line-height: 20px;
   }
 }
+
 .thumb {
   position: relative;
 
@@ -59,7 +60,7 @@
   width: inherit;
   height: 161px;
   margin-bottom: 5px;
-
+  overflow: hidden;
   & > img {
     display: block;
     height: 100%;
