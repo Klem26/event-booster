@@ -8,15 +8,15 @@ const eventsApiService = new EventsApiService();
 // eventsApiService.fetchRandomEvents().then(console.log).catch(console.log);
 
 // Список событий по ключевому слову
-// eventsApiService.query = 'music';
-// eventsApiService.fetchEventsByKeyWord().then(console.log).catch(console.log);
+eventsApiService.query = 'music';
+eventsApiService.fetchEventsByKeyWord().then(console.log).catch(console.log);
 
 // Список событий по стране
 // eventsApiService.fetchEventsByCoutry('US').then(console.log).catch(console.log);
 
 // Событие по id
 // eventsApiService
-//   .fetchEventById('LvZ18ba5GShwZz8ZRSmd0')
+//   .fetchEventById('LvZ18bkz4-UUwMYZc6OxJ')
 //   .then(console.log)
 //   .catch(console.log);
 
