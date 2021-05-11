@@ -45,7 +45,11 @@ export default class EventsApiService {
   fetchEventById(id) {
     return this.goFetch(
       `${BASE_URL}events.json?id=${id}&source=universe&apikey=${API_KEY}`,
-    );
+    ).then(response => {
+      if (response) {
+        return response[0];
+      }
+    });
   }
 
   // Получить событие по стране
