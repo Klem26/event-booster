@@ -1,0 +1,38 @@
+.logo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  
+  background-repeat: no-repeat;
+
+  @media screen and (max-width: 767px) {
+    width: 107px;
+    background-image: url('./../images/bg-logo-mobile.png');
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 180px;
+    background-image: url('./../images/bg-logo-tablet.png');
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 238px;
+    background-image: url('./../images/bg-logo-desktop.png');
+  }
+}
+
+.logo-link {
+  display: block;
+}
+
+.logo-img {
+  @media screen and (max-width: 767px) {
+    margin-left: 5px;
+    margin-top: 8px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-left: 5px;
+    margin-top: 8px;
+  }
+}
