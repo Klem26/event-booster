@@ -1,6 +1,6 @@
 .search-form {
-  /*position: relative;
-  width: 100%;*/
+  position: relative; /* для інпута пошуку й лупи */
+  /*width: 100%;*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,14 +39,20 @@
   backdrop-filter: blur(20px);
   border-radius: 20px;
   border: transparent;
+  padding-left: 30px; /* паддінг задаємо на ІНПУТ, а не на плейсхолдер */
   &::placeholder {
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-    line-height: 20px;
+    line-height: 40px; /* вирівнювання по ЦЕНТРУ висоти, а висота 40px */
     color: $grey-text-color;
-    padding: 10px 30px;
+    /*padding: 10px 30px;*/
   }
+  /* для різних браузерів можна:
+  &::-webkit-input-placeholder {}
+  &::-moz-placeholder {}
+  &:-moz-placeholder {}
+  &:-ms-input-placeholder {} */
   &:hover,
   &:focus {
     outline-color: $grey-text-color;
