@@ -54,12 +54,10 @@ function onEscPress(event) {
   }
 }
 
-function normalizeEventObjects(response) {
-  return response.map(obj => {
-    obj.posterUrl = obj.images
-      .filter(image => image.ratio === '1_1')
-      .map(image => image.url);
+function normalizeEventObjects(obj) {
+  obj.posterUrl = obj.images
+    .filter(image => image.ratio === '1_1')
+    .map(image => image.url);
 
-    return obj;
-  });
+  return obj;
 }
