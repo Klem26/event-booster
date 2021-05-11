@@ -5,7 +5,7 @@ import notificationError from './notification-func';
 const eventsApiService = new EventsApiService();
 
 // Список случайных событий
-eventsApiService.fetchRandomEvents().then(console.log).catch(console.log);
+// eventsApiService.fetchRandomEvents().then(console.log).catch(console.log);
 
 // Список событий по ключевому слову
 // eventsApiService.query = 'music';
@@ -15,10 +15,10 @@ eventsApiService.fetchRandomEvents().then(console.log).catch(console.log);
 // eventsApiService.fetchEventsByCoutry('US').then(console.log).catch(console.log);
 
 // Событие по id
-eventsApiService
-  .fetchEventById('LvZ18ba5GShwZz8ZRSmd0')
-  .then(console.log)
-  .catch(console.log);
+// eventsApiService
+//   .fetchEventById('LvZ18ba5GShwZz8ZRSmd0')
+//   .then(console.log)
+//   .catch(console.log);
 
 // Список картинок конкретного события по id
 // eventsApiService
