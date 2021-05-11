@@ -51,8 +51,6 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "handlebars": "^4.7.6",
-    "jquery": "^3.6.0",
-    "modern-normalize": "^1.1.0",
-    "paginationjs": "^2.1.5"
+    "modern-normalize": "^1.1.0"
   }
 }
