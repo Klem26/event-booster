@@ -44,7 +44,7 @@ function renderCard(id) {
 }
 
 function onBackdropClick(event) {
-  if (event.target.className == 'close-icons-svg') {
+  if (event.target.className === 'close-icon') {
     onCloseModal();
   }
 
