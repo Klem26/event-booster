@@ -55,7 +55,7 @@ export default class EventsApiService {
   // Получить событие по стране
   fetchEventsByCoutry(countryCode) {
     return this.goFetch(
-      `${BASE_URL}events.json?countryCode=${countryCode}&page=${this._page}&apikey=${API_KEY}`,
+      `${BASE_URL}events.json?countryCode=${countryCode}&keyword=${this.searchQuery}&page=${this._page}&apikey=${API_KEY}`,
     );
   }
 
