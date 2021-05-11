@@ -9,7 +9,7 @@ svg {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(32, 13, 29, 0.6);
+  background-color: $overlay;
   opacity: 1;
   z-index: 100;
   transition: opacity $timing-function;
@@ -39,7 +39,7 @@ svg {
   left: 50%;
   width: 272px;
   height: auto;
-  background-color: #fff2fd;
+  background-color: $modal-bg;
   border-radius: 150px 0px;
 }
 
@@ -53,11 +53,11 @@ svg {
   text-align: center;
   border: none;
   padding: 0;
-  background-color: #fff2fd;
+  background-color: $modal-bg;
 
   &:hover .close-icons-svg,
   &:focus .close-icons-svg {
-    fill: #4c00fe;
+    fill: $modal-btn;
     transition: fill $timing-function;
   }
 }
@@ -94,7 +94,7 @@ svg {
   font-weight: 600;
   font-size: 20px;
   line-height: 1.2;
-  color: #dc56c5;
+  color: $accent;
   margin-top: 0px;
   margin-bottom: 5px;
   text-align: center;
@@ -121,20 +121,19 @@ svg {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
-  color: #4c00fe;
-  border-color: #4c00fe;
+  color: $modal-btn;
+  border-color: $modal-btn;
   border-radius: 5px;
   margin-bottom: 31px;
   padding: 0;
 }
 .modal-btn:hover,
 .modal-btn:focus {
-  background-color: #4c00fe;
-  color: #ffffff;
+  background-color: $modal-btn;
+  color: $white;
   outline: none;
   border: 0;
-  transition: background-color var(--timing-function),
-    color var(--timing-function);
+  transition: background-color $timing-function, color $timing-function;
 }
 
 .author-btn {
@@ -159,15 +158,16 @@ svg {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
-  color: #0e0e0e;
+  color: $black;
   margin-bottom: 10px;
   margin-top: 0;
 }
 
 .img-small-modal {
+  position: absolute;
   text-align: center;
-  // width: 102px;
-  // height: 102px;
+  width: 102px;
+  height: 102px;
   padding-top: 75px;
   padding-bottom: 0;
 }
@@ -176,7 +176,7 @@ svg {
   display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet) {
   .modal {
     width: 595px;
     height: 831px;
@@ -203,7 +203,7 @@ svg {
 
   .author-btn {
     width: 255px;
-    border: 1px solid #dc56c5;
+    border: 1px solid $accent;
   }
 
   .img-small-modal {
@@ -213,7 +213,7 @@ svg {
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: $desktop) {
   .modal {
     width: 930px;
     height: 1023px;
@@ -257,7 +257,7 @@ svg {
   }
 
   .author-btn {
-    border: 1px solid #4c00fe;
+    border: 1px solid $modal-btn;
   }
 
   .text-modal {
