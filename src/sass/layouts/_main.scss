@@ -1,5 +1,9 @@
-.container-main {
+.background-main {
   background-color: yellow; /* якщо картинка не завантажиться */
+  /*min-width: 320px;*/
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url(../images/background-body-mobile.jpg);

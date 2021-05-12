@@ -1,12 +1,10 @@
-.container-header {
-  position: relative;
+.background-header {
+  position: relative; /* додано для логотипу */
   background-color: green; /* якщо картинка не завантажиться */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /*max-width: 1600px;
+  /*min-width: 320px;*/
+  max-width: 1600px;
   margin-left: auto;
-  margin-right: auto;*/
+  margin-right: auto;
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url(../images/background-header-mobile.jpg);
@@ -54,6 +52,12 @@
       background-image: url(../images/background-header-desktop@3x.jpg);
     }
   }
+}
+
+.container-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .heading {
