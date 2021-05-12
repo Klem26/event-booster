@@ -1,0 +1,43 @@
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    background: black;
+    z-index: 1001;
+  }
+  
+  .preloader-image {
+    @media screen and (min-width: 321px) {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    text-align: center;
+    
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 200px;
+      height: 200px;
+      margin-top: -100px;
+      margin-left: -100px;
+    }
+  }
+  
+  .loaded_hiding .preloader {
+    transition: 3s opacity;
+    opacity: 0;
+  }
+  
+  .loaded .preloader {
+    display: none;
+  }
+
+
+  
