@@ -5,8 +5,8 @@ const eventsApiService = new EventsApiService();
 const galleryListRef = document.querySelector('.gallery-list');
 const backdropRef = document.querySelector('.backdrop');
 
-galleryListRef.addEventListener('click', onGalleryClick);
-galleryListRef.addEventListener('click', onOpenModal);
+// galleryListRef.addEventListener('click', onGalleryClick);
+// galleryListRef.addEventListener('click', onOpenModal);
 // Повесить событие на кнопку закрытия модалки
 backdropRef.addEventListener('click', onBackdropClick);
 
