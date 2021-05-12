@@ -75,10 +75,11 @@ export default class EventsApiService {
   // Нормализация
 
   normalizeEventObj(obj) {
-    obj.posterUrl = obj.images
+    const image = obj.images
       .filter(image => image.ratio === '4_3')
       .map(image => image.url);
 
+    obj.posterUrl = image[0];
     return obj;
   }
 

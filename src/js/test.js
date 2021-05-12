@@ -9,17 +9,17 @@ const eventsApiService = new EventsApiService();
 
 
 // Список случайных событий
-// eventsApiService.fetchRandomEvents().then(console.log).catch(console.log);
+eventsApiService.fetchRandomEvents().then(console.log).catch(console.log);
 
 // Список событий по ключевому слову
-eventsApiService.query = 'music';
-eventsApiService.fetchEventsByKeyWord().then(result => {
-    const pagination = new Pagination('pagination', options);
-    const totalItems = eventsApiService.totalElements;
-    pagination.reset(totalItems);
+// eventsApiService.query = 'music';
+// eventsApiService.fetchEventsByKeyWord().then(result => {
+//     const pagination = new Pagination('pagination', options);
+//     const totalItems = eventsApiService.totalElements;
+//     pagination.reset(totalItems);
    
-    return result;
-}).catch(console.log);
+//     return result;
+// }).catch(console.log);
 
 // Список событий по стране
 // eventsApiService.fetchEventsByCoutry('US').then(console.log).catch(console.log);
