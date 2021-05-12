@@ -4,7 +4,7 @@ import notificationError from './notification-func';
 // Для пагинации ***
 import Pagination from './pagination';
 
-const refs = {
+const buttonRefs = {
   pageButtonsList: document.querySelector('.page-buttons'),
   firstPage: document.querySelector('.first-page-btn'),
   prevBtnRef: document.querySelector('.prev-button'),
@@ -26,17 +26,20 @@ eventsApiService.query = 'music';
 eventsApiService
   .fetchEventsByKeyWord()
   .then(r => {
-    const pagination = new Pagination(eventsApiService.totalPages, refs);
+    const pagination = new Pagination(eventsApiService.totalPages, buttonRefs);
     const firstPageClick = pagination.onFirstPageClick.bind(pagination);
     const lastPageClick = pagination.onLastPageClick.bind(pagination);
     const nextBtnClick = pagination.onNextBtnClick.bind(pagination);
     const prevtBtnClick = pagination.onPrevBtnClick.bind(pagination);
 
-    refs.firstPage.addEventListener('click', firstPageClick);
-    refs.lastPage.addEventListener('click', lastPageClick);
-    refs.nextBtnRef.addEventListener('click', nextBtnClick);
-    refs.prevBtnRef.addEventListener('click', prevtBtnClick);
-    refs.pageButtonsList.addEventListener('click', pagination.onPageBtnClick);
+    buttonRefs.firstPage.addEventListener('click', firstPageClick);
+    buttonRefs.lastPage.addEventListener('click', lastPageClick);
+    buttonRefs.nextBtnRef.addEventListener('click', nextBtnClick);
+    buttonRefs.prevBtnRef.addEventListener('click', prevtBtnClick);
+    buttonRefs.pageButtonsList.addEventListener(
+      'click',
+      pagination.onPageBtnClick,
+    );
   })
   .catch(console.log);
 
