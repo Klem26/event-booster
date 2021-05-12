@@ -15,7 +15,10 @@ const eventsApiService = new EventsApiService();
 eventsApiService.query = 'music';
 eventsApiService.fetchEventsByKeyWord().then(result => {
     const pagination = new Pagination('pagination', options);
-    pagination._options.totalItems = eventsApiService.totalElements;
+    const totalItems = eventsApiService.totalElements;
+    pagination.reset(totalItems);
+   
+    return result;
 }).catch(console.log);
 
 // Список событий по стране
