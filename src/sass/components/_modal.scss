@@ -161,19 +161,6 @@ svg {
   color: $modal-btn;
 }
 
-.author-btn {
-  text-align: center;
-  outline: 1px solid $modal-btn;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 3px;
-  padding-left: 3px;
-  // margin: auto;
-  display: inline-block;
-  text-decoration: none;
-  color: $modal-btn;
-}
-
 .modal-btn.vip-btn {
   margin: 0;
 }
@@ -315,7 +302,7 @@ svg {
   }
 
   .author-btn {
-    outline: 1px solid $modal-btn;
+    border: 1px solid $modal-btn;
   }
 
   .text-modal {
