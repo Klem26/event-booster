@@ -151,15 +151,28 @@ svg {
   cursor: pointer;
 }
 
+.author-btn {
+  text-align: center;
+  outline: 1px solid $modal-btn;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 3px;
+  padding-left: 3px;
+  // margin: auto;
+  display: inline-block;
+  text-decoration: none;
+  color: $modal-btn;
+}
+
 .modal-btn.vip-btn {
   margin: 0;
 }
 
-.author {
-  text-align: center;
-  width: 224px;
-  height: 20px;
-}
+// .author {
+//   text-align: center;
+//   width: 224px;
+//   height: 20px;
+// }
 
 .text-modal {
   font-family: 'Montserrat', sans-serif;
@@ -212,7 +225,9 @@ svg {
 
   .author-btn {
     width: 255px;
-    border: 1px solid $accent;
+    outline: 1px solid $accent;
+    padding-right: 15px;
+    padding-left: 16px;
   }
 
   .img-small-modal {
@@ -266,7 +281,7 @@ svg {
   }
 
   .author-btn {
-    border: 1px solid $modal-btn;
+    outline: 1px solid $modal-btn;
   }
 
   .text-modal {
