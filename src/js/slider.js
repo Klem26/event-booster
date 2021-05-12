@@ -1,12 +1,9 @@
 import Glide from '@glidejs/glide';
 import EventsApiService from './api/EventsApiService';
 import cardSliderTpl from './templates/cardSliderTpl.hbs';
-const sliderRef = document.querySelector('.js-slider-container')
-
+const sliderRef = document.querySelector('.js-slider-container');
 
 const eventsApiService = new EventsApiService();
-
-
 
 const glide = new Glide('.glide', {
   type: 'slider',
@@ -29,22 +26,12 @@ const glide = new Glide('.glide', {
 
 glide.mount();
 
-function normalizeEventObjects(response) {
-  return response.map(obj => {
-    obj.posterUrl = obj.images
-      .filter(image => image.ratio === '4_3')
-      .map(image => image.url);
-
-    return obj;
-  });
-}
-  eventsApiService
-      .fetchRandomEvents()
-      .then(normalizeEventObjects)
-      .then((response) => {
-        console.log(response)
-        sliderRef.innerHTML = cardSliderTpl(response);
-    })
-      .catch(err => {
-      console.log(err);
+eventsApiService
+  .fetchRandomEvents()
+  .then(response => {
+    console.log(response);
+    sliderRef.innerHTML = cardSliderTpl(response);
+  })
+  .catch(err => {
+    console.log(err);
   });
