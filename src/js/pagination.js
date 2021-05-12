@@ -5,7 +5,8 @@ export default class Pagination {
     this.currentPageIndex = '1';
 
     this.createButtons();
-    this.addLastPage();
+    this.hidePrevButton();
+    this.setLastPageBtn();
   }
 
   createButtons() {
@@ -17,25 +18,29 @@ export default class Pagination {
       } else {
         const newButton = document.createElement('button');
         newButton.classList.add('page-button');
-        newButton.setAttribute('data-index', i);
         newButton.textContent = i;
+        newButton.setAttribute('data-index', i);
         buttons.push(newButton);
       }
     }
 
-    this.refs.buttonsList.append(...buttons);
-  }
+    this.refs.pageButtonsList.append(...buttons);
 
-  addLastPage() {
-    this.refs.lastPage.textContent = this.totalPages;
+    if (this.totalPages <= 5) {
+      this.hideNextButton();
+    }
   }
 
   onPageBtnClick(e) {
     this.currentPageIndex = e.target.dataset.index;
   }
 
-  onLastBtnClick() {
-    this.refs.buttonsList.children.forEach(button => {
+  setLastPageBtn() {
+    this.refs.lastPage.textContent = this.totalPages;
+  }
+
+  onNextBtnClick() {
+    this.refs.pageButtonsList.children.forEach(button => {
       let btnIndex = button.dataset.index;
 
       if (btnIndex > this.totalPages) {
@@ -49,7 +54,7 @@ export default class Pagination {
     this.toggleBtnVisibility();
   }
 
-  onFirstBtnClick() {
+  onPrevBtnClick() {
     this.refs.pageButtonsList.children.forEach(button => {
       let btnIndex = button.dataset.index;
 
@@ -65,41 +70,45 @@ export default class Pagination {
   }
 
   toggleBtnVisibility() {
-    const buttonsList = this.refs.buttonsList.children;
+    const buttonsList = this.refs.pageButtonsList.children;
     const firstBtnIndex = buttonsList[0].dataset.index;
     const lastBtnIndex = buttonsList[4].dataset.index;
 
     if (firstBtnIndex === '1') {
-      this.hideFirstPage();
+      this.hidePrevButton();
     } else {
-      this.showFirstPage();
+      this.showPrevButton();
     }
 
     if (lastBtnIndex >= this.totalPages) {
-      this.hideLastPage();
+      this.hideNextButton();
     } else {
-      this.showLastPage();
+      this.showNextButton();
     }
   }
 
   showPrevButton() {
     this.refs.firstPage.classList.remove('visually-hidden');
-    this.refs.leftDots.classList.remove('visually-hidden');
+    this.refs.prevBtnRef.classList.remove('visually-hidden');
+    this.refs.leftDotsRef.classList.remove('visually-hidden');
   }
 
   hidePrevButton() {
     this.refs.firstPage.classList.add('visually-hidden');
-    this.refs.leftDots.classList.add('visually-hidden');
+    this.refs.prevBtnRef.classList.add('visually-hidden');
+    this.refs.leftDotsRef.classList.add('visually-hidden');
   }
 
   showNextButton() {
     this.refs.lastPage.classList.remove('visually-hidden');
-    this.refs.rightDots.classList.remove('visually-hidden');
+    this.refs.nextBtnRef.classList.remove('visually-hidden');
+    this.refs.rightDotsRef.classList.remove('visually-hidden');
   }
 
   hideNextButton() {
     this.refs.lastPage.classList.add('visually-hidden');
-    this.refs.rightDots.classList.add('visually-hidden');
+    this.refs.nextBtnRef.classList.add('visually-hidden');
+    this.refs.rightDotsRef.classList.add('visually-hidden');
   }
 
   get currentPage() {
