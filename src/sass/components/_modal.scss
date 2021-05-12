@@ -38,9 +38,15 @@ svg {
   top: 50%;
   left: 50%;
   width: 272px;
-  height: auto;
+  height: 915px;
   background-color: $modal-bg;
   border-radius: 150px 0px;
+  overflow: auto;
+}
+
+.description {
+  max-height: 100px;
+  overflow: auto;
 }
 
 .close-icon {
