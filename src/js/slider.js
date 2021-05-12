@@ -13,13 +13,13 @@ const glide = new Glide('.glide', {
   hoverpause: true,
   bound: true,
   gap: 30,
-  animationDuration: 700,
+  animationDuration: 1200,
   breakpoints: {
-    920: {
-      perView: 5,
+    1280: {
+      perView: 12,
     },
     767: {
-      perView: 3,
+      perView: 10,
     },
   },
 });
