@@ -4,9 +4,7 @@ export default class Pagination {
     this.refs = refs;
     this.currentPageIndex = '1';
 
-    this.createButtons();
-    this.hidePrevButton();
-    this.setLastPageBtn();
+    this.initPagin();
   }
 
   createButtons() {
@@ -37,6 +35,14 @@ export default class Pagination {
 
   setLastPageBtn() {
     this.refs.lastPage.textContent = this.totalPages;
+  }
+
+  onFirstPageClick() {
+    console.log('First page')
+  }
+
+  onLastPageClick() {
+    console.log('Last page')
   }
 
   onNextBtnClick() {
@@ -109,6 +115,12 @@ export default class Pagination {
     this.refs.lastPage.classList.add('visually-hidden');
     this.refs.nextBtnRef.classList.add('visually-hidden');
     this.refs.rightDotsRef.classList.add('visually-hidden');
+  }
+
+  initPagin() {
+    this.createButtons();
+    this.hidePrevButton();
+    this.setLastPageBtn();
   }
 
   get currentPage() {
