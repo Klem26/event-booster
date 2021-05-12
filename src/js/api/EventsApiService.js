@@ -23,7 +23,7 @@ export default class EventsApiService {
         this.totalElements = page.totalElements;
         this.totalPages = page.totalPages;
 
-        return _embedded.events;
+        return _embedded.events.map(this.normalizeEventObj);
       });
   }
 
@@ -70,6 +70,16 @@ export default class EventsApiService {
         return response.json();
       })
       .then(response => response.images);
+  }
+
+  // Нормализация
+
+  normalizeEventObj(obj) {
+    obj.posterUrl = obj.images
+      .filter(image => image.ratio === '4_3')
+      .map(image => image.url);
+
+    return obj;
   }
 
   // Переключение страниц (для пагинации)
