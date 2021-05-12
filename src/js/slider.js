@@ -15,8 +15,8 @@ const glide = new Glide('.glide', {
   gap: 30,
   animationDuration: 1200,
   breakpoints: {
-    1280: {
-      perView: 12,
+    1440: {
+      perView: 16,
     },
     767: {
       perView: 10,
