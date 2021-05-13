@@ -10,9 +10,10 @@
   color: #FFFFFF;
   font-weight: 400;
   font-size: 16px;
-  line-height: 1.88;
+  line-height: 1.6;
   text-align: center;
   text-decoration: none;
+  border: solid 1px transparent;
   @include breakpoint(non-tablet) {
     font-size: 14px;
   }
@@ -24,7 +25,7 @@ a[data-index], strong[data-index] {
 
 .tui-is-selected {
   color: #DC56C5;
-  border: solid 1px #DC56C5;
+  border-color: #DC56C5;
   border-bottom-right-radius: 10px;
   border-top-left-radius: 10px;
 }
