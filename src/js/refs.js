@@ -1,1 +1,4 @@
-const refs = {};
+const refs = {
+};
+
+export default refs;
