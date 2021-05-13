@@ -8,5 +8,6 @@ import './js/preloadet';
 import './js/go-top';
 import './js/pagination-tui';
 import './js/slider';
+import './js/page-render';
 
 
