@@ -144,15 +144,12 @@ svg {
   transition: background-color $timing-function, color $timing-function;
 }
 
-// .author-btn {
-//   width: 228px;
-//   padding: 0;
-//   margin: 0;
-//   cursor: pointer;
-// }
+.author {
+  display: block;
+  text-align: center;
+}
 
 .author-btn {
-  text-align: center;
   width: 230px;
   border: 1px solid $modal-btn;
   padding-top: 10px;
@@ -160,7 +157,6 @@ svg {
   padding-right: 2px;
   padding-left: 2px;
   margin: 0;
-  display: inline-block;
   text-decoration: none;
   color: $modal-btn;
 }

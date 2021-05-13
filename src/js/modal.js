@@ -66,3 +66,27 @@ function normalizeEventObjects(obj) {
   obj.svgUrl = svg;
   return obj;
 }
+
+(() => {
+  const refs = {
+    card: document.querySelector('.event_card'),
+    modal: document.querySelector('.backdrop'),
+  };
+
+  refs.card.addEventListener('click', toggleModal);
+
+  function toggleModal(event) {
+    let id;
+    let t = event.target;
+    while (t) {
+      if (t.className === 'event_card') {
+        id = t.dataset.id;
+        break;
+      }
+      t = t.parentElement;
+    }
+
+    renderCard(id);
+    refs.modal.classList.toggle('is-hidden');
+  }
+})();
