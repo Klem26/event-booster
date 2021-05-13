@@ -63,6 +63,6 @@ function normalizeEventObjects(obj) {
   obj.posterUrl = obj.images
     .filter(image => image.ratio === '1_1')
     .map(image => image.url);
-
+  obj.svgUrl = svg;
   return obj;
 }
