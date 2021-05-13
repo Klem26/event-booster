@@ -1,15 +1,4 @@
 .container_result {
-  @media screen and (max-width: 319px) {
-    width: 100%;
-  }
-
-  @media screen and (min-width: 320px) {
-    padding: 0px 25px;
-  }
-  @media screen and (min-width: 768px) {
-    padding: 0px 87px;
-  }
-  @media screen and (min-width: 1280px) {
-    padding: 0px 175px;
-  }
+  display: flex;
+  justify-content: center;
 }
