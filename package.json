@@ -50,6 +50,7 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.4.1",
     "@pnotify/core": "^5.2.0",
     "core-js": "^3.6.5",
     "handlebars": "^4.7.6",
