@@ -4,7 +4,8 @@ const refs = {
   htmlRef: document.querySelector('html'),
   loader: document.querySelector('.loader'),
   searchInputRef: document.querySelector('.search-input'),
-   sliderRef : document.querySelector('.js-slider-container'),
+  searchCountryRef: document.querySelector('.search-country'),
+  sliderRef : document.querySelector('.js-slider-container'),
 };
 
 export default refs;
