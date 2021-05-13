@@ -1,5 +1,5 @@
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.css';
 
 const options = {
   totalItems: 0,
@@ -15,11 +15,11 @@ const options = {
       '<strong class="tui-page-btn tui-is-selected" data-index={{page}}>{{page}}</strong>',
     moveButton:
       '<a href="#" class="tui-page-btn tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '<span class="tui-ico-{{type}}"></span>' +
       '</a>',
     disabledMoveButton:
       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '<span class="tui-ico-{{type}}"></span>' +
       '</span>',
     moreButton:
       '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
