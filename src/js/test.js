@@ -1,9 +1,7 @@
 import EventsApiService from './api/EventsApiService';
 import notificationError from './notification-func';
 import Pagination from 'tui-pagination';
-import pageRender from './page-render';
 import options from './pagination';
-
 
 // Создаём экземпляр класса
 const eventsApiService = new EventsApiService();
@@ -52,14 +50,3 @@ const eventsApiService = new EventsApiService();
 //   .fetchEventImage('Z698xZbpZ17a4oM')
 //   .then(console.log)
 //   .catch(console.log);
-
-// проверка файла page-render.js
-eventsApiService
-  .fetchRandomEvents()
-  .then(response => {
-    console.log('response from test.js', response);
-    pageRender(response);
-  })
-  .catch(err => {
-    console.log(err);
-  });
