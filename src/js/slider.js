@@ -29,7 +29,6 @@ glide.mount();
 eventsApiService
   .fetchRandomEvents()
   .then(response => {
-    console.log('response from slider.js', response);
     sliderRef.innerHTML = cardSliderTpl(response);
   })
   .catch(err => {
