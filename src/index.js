@@ -8,4 +8,5 @@ import './js/preloadet';
 import './js/go-top';
 import './js/pagination';
 import './js/slider';
+import './js/page-render';
 import './js/main';

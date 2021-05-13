@@ -1,6 +1,7 @@
 import EventsApiService from './api/EventsApiService';
 import notificationError from './notification-func';
 import Pagination from 'tui-pagination';
+import pageRender from './page-render';
 import options from './pagination';
 
 // Создаём экземпляр класса
