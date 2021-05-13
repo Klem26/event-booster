@@ -1,33 +1,44 @@
 .heading {
-	transition: 2s;
-	animation: show 5s 1; 
+  // transition: 2s;
+  opacity: 0;
+	animation: translating1 1s ease 0s, show 5s 1;
     animation-fill-mode: forwards; 
     animation-delay: 1s; 
-
-    @keyframes show{
-        0%{ opacity:0; }
-        100% { opacity:1; }
-       }
   }
 
-//   .logo-img {
-//     animation: scaleLogo 1.5s linear 0.2s;
-//     @keyframes scaleLogo {
-//         0% {transform: scale(1);}
-//        50% {transform: scale(1.15);}
-//       100% {transform: scale(1);}
-//     }
-//   }
+  .search-form {
+    animation: translating 2s ease 0.2s ;
+  }
 
-.test-card{
-    animation: scaleList 1s linear 2s ;
-    @keyframes scaleList {
-        0% {transform: scale(0.4);}
-      100% {transform: scale(1);}
+  .slider-wrapper {
+    animation: translating 2s ease 0.2s ;
+  }
+
+  .gallery-list {
+    animation: translating 2s ease 0.2s ;
+  }
+
+    @keyframes translating {
+      0%  { transform: translate(0, 30px);}
+      100%{ transform: translate(0, 0);}
     }
-    animation: show 2s 1; 
+    
     @keyframes show{
-        0%{ opacity:0; }
-        100% { opacity:1; }
-       }
-  }
+      0%{ opacity:0; }
+      100% { opacity:1; }
+    }
+
+    @keyframes translating1{
+      0%  { transform: translate(0, -30px);}
+      100%{ transform: translate(0, 0);}
+    }
+
+    
+  // .logo-img {
+  //   animation: scaleLogo 2s linear 0.2s;
+  //   @keyframes scaleLogo {
+  //       0% {transform: scale(1);}
+  //      50% {transform: scale(1.15);}
+  //     100% {transform: scale(1);}
+  //   }
+  // }
