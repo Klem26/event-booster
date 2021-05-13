@@ -5,4 +5,4 @@ import './js/modal';
 import './js/test';
 import './js/go-top';
 import './js/pagination-tui';
-
+import './js/spinner';
