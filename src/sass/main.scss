@@ -5,6 +5,7 @@
 @import './components/button';
 @import './components/event-card';
 @import './components/logo';
+@import './components/pagination';
 @import './layouts/header';
 @import './layouts/container-results';
 @import './components/modal';
@@ -12,5 +13,8 @@
 @import './layouts/search-form';
 @import './layouts/main';
 @import './layouts/footer';
+@import './layouts/preloader';
+@import './components/animation.scss';
 @import './components/go-top';
 @import './layouts/slider.scss';
+

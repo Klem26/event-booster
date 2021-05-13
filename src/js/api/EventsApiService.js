@@ -1,5 +1,6 @@
 const API_KEY = 'qE8iBnVwihSK4QSH4hL5UNRfjujJpVDl';
-const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
+const BASE_URL =
+  'https://newsuperserver.herokuapp.com/https://app.ticketmaster.com/discovery/v2/';
 
 export default class EventsApiService {
   constructor() {
@@ -28,14 +29,18 @@ export default class EventsApiService {
   }
 
   // События при загрузке страницы
-  fetchRandomEvents() {
+  fetchRandomEvents(activePage = 0) {
+    this._page = activePage;
+
     return this.goFetch(
       `${BASE_URL}events.json?size=20&page=${this._page}&sort=random&apikey=${API_KEY}`,
     );
   }
 
   // События из строки поиска (поиск по названию)
-  fetchEventsByKeyWord() {
+  fetchEventsByKeyWord(activePage = 0) {
+    this._page = activePage;
+
     return this.goFetch(
       `${BASE_URL}events.json?keyword=${this.searchQuery}&source=universe&page=${this._page}&apikey=${API_KEY}`,
     );
@@ -81,23 +86,6 @@ export default class EventsApiService {
 
     obj.posterUrl = image[0];
     return obj;
-  }
-
-  // Переключение страниц (для пагинации)
-  incrementPage() {
-    this._page += 1;
-  }
-
-  decrementPage() {
-    if (this._page <= 0) {
-      return;
-    }
-
-    this._page -= 1;
-  }
-
-  resetPage() {
-    this.page = 1;
   }
 
   // Информация о текущей странице

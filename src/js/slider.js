@@ -1,7 +1,8 @@
 import Glide from '@glidejs/glide';
+import refs from './refs';
 import EventsApiService from './api/EventsApiService';
 import cardSliderTpl from './templates/cardSliderTpl.hbs';
-const sliderRef = document.querySelector('.js-slider-container');
+// const sliderRef = document.querySelector('.js-slider-container');
 
 const eventsApiService = new EventsApiService();
 
@@ -29,8 +30,7 @@ glide.mount();
 eventsApiService
   .fetchRandomEvents()
   .then(response => {
-    console.log(response);
-    sliderRef.innerHTML = cardSliderTpl(response);
+    refs.sliderRef.innerHTML = cardSliderTpl(response);
   })
   .catch(err => {
     console.log(err);

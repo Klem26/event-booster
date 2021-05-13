@@ -89,44 +89,38 @@
     }
   }
 }
+
 .event_card {
-  width: 128px;
-
-  margin-top: 30px;
-  padding-top: 9px;
-
-  @media screen and (max-width: 767px) {
-    &:nth-child(even) {
-      margin-left: 14px;
-    }
+  @media screen and (max-width: $tablet) {
+    width: 128px;
+    margin-bottom: 30px;
   }
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    width: 180px;
-    margin-top: 45px;
-    padding-top: 13px;
-    &:not(:nth-child(3n + 1)) {
-      margin-left: 27px;
-    }
+  @media screen and (min-width: $tablet) {
+    width: 192px;
+    margin-bottom: 45px;
   }
-  @media screen and (min-width: 1280px) {
-    width: 180px;
-    padding-top: 13px;
-    margin-top: 50px;
-    &:not(:nth-child(4n + 1)) {
-      margin-left: 70px;
-    }
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 50px;
   }
 }
+
 .events_list {
   display: flex;
   flex-wrap: wrap;
-  @media screen and (max-width: 767px) {
-    margin-top: -30px;
+  justify-content: space-between;
+
+  @media screen and (max-width: $tablet) {
+    width: 280px;
+    margin-bottom: 60px;
   }
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    margin-top: -45px;
+
+  @media screen and (min-width: $tablet) {
+    width: 595px;
+    margin-bottom: 60px;
   }
-  @media screen and (min-width: 1280px) {
-    margin-top: -50px;
+
+  @media screen and (min-width: $desktop) {
+    width: 946px;
+    margin-bottom: 80px;
   }
 }
