@@ -226,7 +226,7 @@ svg {
   }
 
   .img-small-modal {
-    width: 70;
+    width: 70px;
     height: 70px;
     padding-top: 28px;
   }
@@ -273,6 +273,14 @@ svg {
     width: 360px;
     height: 641px;
     margin-right: 60px;
+  }
+
+  .img-large-modal img {
+    display: block;
+    max-width: 360px;
+    max-height: 641px;
+    width: auto;
+    height: auto;
   }
 
   .author-btn {
