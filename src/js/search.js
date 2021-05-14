@@ -4,6 +4,7 @@ import EventsApiService from './api/EventsApiService';
 import notificationError from './notification-func';
 import Pagination from 'tui-pagination';
 import options from './pagination';
+import scrollToTop from './scroll-top';
 const debounce = require('lodash.debounce');
 
 const eventsApiService = new EventsApiService();
@@ -42,6 +43,7 @@ function fetchEvents() {
           .fetchEventsByKeyWord(eventData.page - 1)
           .then(events => {
             pageRender(events);
+            scrollToTop();
           });
       });
     })

@@ -3,6 +3,7 @@ import EventsApiService from './api/EventsApiService';
 import Pagination from 'tui-pagination';
 import options from './pagination';
 import notificationError from './notification-func';
+import scrollToTop from './scroll-top';
 
 const firstEventsList = new EventsApiService();
 
@@ -23,6 +24,7 @@ firstEventsList
     pagination.on('afterMove', function (eventData) {
       firstEventsList.fetchRandomEvents(eventData.page - 1).then(result => {
         pageRender(result);
+        scrollToTop();
       });
     });
   })
