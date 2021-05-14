@@ -131,7 +131,7 @@ svg {
   color: $modal-btn;
   border-color: $modal-btn;
   border-radius: 5px;
-  margin-bottom: 31px;
+  margin-bottom: 20px;
   padding: 0;
   cursor: pointer;
 }
@@ -177,15 +177,25 @@ svg {
 }
 
 .img-small-modal {
-  position: absolute;
+  position: relative;
+  display: block;
   text-align: center;
   width: 102px;
-  height: 102px;
-  padding-top: 75px;
+  margin-top: 75px;
+  margin-left: auto;
+  margin-right: auto;
   padding-bottom: 0;
+  border-radius: 50%;
+  overflow: hidden;
+
+  & > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
-.img-large-modal {
+.thumb-large {
   display: none;
 }
 
@@ -292,11 +302,6 @@ svg {
   .modal-content {
     width: 450px;
   }
-  // .img-large-modal {
-  //   width: 360px;
-  //   height: 641px;
-  //   margin-right: 60px;
-  // }
 
   .thumb-large {
     width: 360px;
