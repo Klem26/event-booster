@@ -34,7 +34,12 @@ export default class EventsApiService {
 
     return this.goFetch(
       `${BASE_URL}events.json?size=20&page=${this._page}&sort=random&apikey=${API_KEY}`,
-    );
+    ).then(response => {
+      const stringifiedObj = JSON.stringify(response);
+      localStorage.setItem('data', stringifiedObj);
+
+      return response;
+    });
   }
 
   // События из строки поиска (поиск по названию)
@@ -43,19 +48,24 @@ export default class EventsApiService {
 
     return this.goFetch(
       `${BASE_URL}events.json?keyword=${this.searchQuery}&source=universe&page=${this._page}&apikey=${API_KEY}`,
-    );
+    ).then(response => {
+      const stringifiedObj = JSON.stringify(response);
+      localStorage.setItem('data', stringifiedObj);
+
+      return response;
+    });
   }
 
   // Получить событие по id
-  fetchEventById(id) {
-    return this.goFetch(
-      `${BASE_URL}events.json?id=${id}&source=universe&apikey=${API_KEY}`,
-    ).then(response => {
-      if (response) {
-        return response[0];
-      }
-    });
-  }
+  // fetchEventById(id) {
+  //   return this.goFetch(
+  //     `${BASE_URL}events.json?id=${id}&source=universe&apikey=${API_KEY}`,
+  //   ).then(response => {
+  //     if (response) {
+  //       return response[0];
+  //     }
+  //   });
+  // }
 
   // Получить событие по стране
   fetchEventsByCoutry(countryCode) {

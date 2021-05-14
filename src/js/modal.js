@@ -73,3 +73,19 @@ function normalizeEventObjects(obj) {
   obj.svgUrl = svg;
   return obj;
 }
+
+// Получает данные с локал сторедж, массив из 20 элементов
+function getLocaleStorageData() {
+  const data = localStorage.getItem('data');
+  const parsedData = JSON.parse(data);
+
+  return parsedData;
+}
+
+// Принимает id, ищет по нему элемент, возвращает его
+function findEventById(id) {
+  const allEvents = getLocaleStorageData();
+  const event = allEvents.filter(item => item.id === id);
+  
+  return event[0];
+}
