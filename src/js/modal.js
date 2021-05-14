@@ -18,7 +18,6 @@ function onGalleryClick(event) {
 
   const cardId = galleryElRef.dataset.id;
   renderCard(cardId);
-  onOpenModal();
 }
 
 function onOpenModal() {
@@ -30,15 +29,18 @@ function onCloseModal() {
   window.removeEventListener('keydown', onEscPress);
 
   backdropRef.classList.add('is-hidden');
-  // Очистить предыдущую разметку
+  backdropRef.innerHTML = '';
 }
 
 function renderCard(id) {
-  eventsApiService
+  return eventsApiService
     .fetchEventById(id)
     .then(normalizeEventObjects)
     .then(modalTpl)
-    .then(r => (document.querySelector('.backdrop').innerHTML = r));
+    .then(r => {
+      backdropRef.innerHTML = r;
+      onOpenModal();
+    });
 }
 
 function onBackdropClick(event) {
@@ -58,9 +60,16 @@ function onEscPress(event) {
 }
 
 function normalizeEventObjects(obj) {
-  obj.posterUrl = obj.images
+  obj.posterUrlSmall = obj.images
     .filter(image => image.ratio === '1_1')
-    .map(image => image.url);
+    .reduce((prev, current) =>
+      prev.width > current.width ? prev : current,
+    ).url;
+  obj.posterUrlLarge = obj.images
+    .filter(image => image.ratio === '16_9')
+    .reduce((prev, current) =>
+      prev.width > current.width ? prev : current,
+    ).url;
   obj.svgUrl = svg;
   return obj;
 }
