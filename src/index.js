@@ -14,3 +14,4 @@ import './js/search';
 import './js/search-country';
 import './js/first-result';
 import './js/scroll-top.js';
+import './js/countries-list';
