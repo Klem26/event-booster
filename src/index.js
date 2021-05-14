@@ -12,5 +12,5 @@ import './js/page-render';
 import './js/spinner';
 import './js/search';
 import './js/search-country';
-import './js/firstResult';
+import './js/first-result';
 
