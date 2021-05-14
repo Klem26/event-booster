@@ -9,7 +9,6 @@ import './js/go-top';
 import './js/pagination';
 import './js/slider';
 import './js/page-render';
-import './js/main';
 import './js/spinner';
 import './js/search';
 import './js/firstResult';
