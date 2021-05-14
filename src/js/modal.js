@@ -1,5 +1,6 @@
 import EventsApiService from './api/EventsApiService';
 import modalTpl from './templates/modalTpl.hbs';
+import svg from '../icons/sprite-icons.svg';
 
 const eventsApiService = new EventsApiService();
 const galleryListRef = document.querySelector('.gallery-list');
@@ -13,8 +14,8 @@ backdropRef.addEventListener('click', onBackdropClick);
 function onGalleryClick(event) {
   const galleryElRef = event.target;
 
-  // Исправить div на li
   if (galleryElRef.nodeName !== 'DIV') {
+    // Исправить div на li
     return;
   }
 
@@ -43,6 +44,10 @@ function renderCard(id) {
 }
 
 function onBackdropClick(event) {
+  if (event.target.className === 'close-icon') {
+    onCloseModal();
+  }
+
   if (event.target === event.currentTarget) {
     onCloseModal();
   }
@@ -58,6 +63,30 @@ function normalizeEventObjects(obj) {
   obj.posterUrl = obj.images
     .filter(image => image.ratio === '1_1')
     .map(image => image.url);
-
+  obj.svgUrl = svg;
   return obj;
 }
+
+(() => {
+  const refs = {
+    card: document.querySelector('.event_card'),
+    modal: document.querySelector('.backdrop'),
+  };
+
+  refs.card.addEventListener('click', toggleModal);
+
+  function toggleModal(event) {
+    let id;
+    let t = event.target;
+    while (t) {
+      if (t.className === 'event_card') {
+        id = t.dataset.id;
+        break;
+      }
+      t = t.parentElement;
+    }
+
+    renderCard(id);
+    refs.modal.classList.toggle('is-hidden');
+  }
+})();

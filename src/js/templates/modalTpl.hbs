@@ -1,7 +1,7 @@
 <div class="modal">
-    <button class="close-icon" data-modal-close>
+    <button class="close-icon">
         <svg class="close-icons-svg">
-            <use href="./icons/sprite-icons.svg#icon-vector"></use>
+            <use href="{{svgUrl}}#icon-vector"></use>
         </svg>
     </button>
     <div class="img-small-modal">
@@ -9,15 +9,17 @@
     </div>
 
     <div class="ticket">
-        <div class="img-large-modal">
-            <img src={{posterUrl}} alt="событие" />
+        <div class="thumb-large">
+            <img src={{posterUrl}} object-fit="cover" alt="событие" />
         </div>
 
         <ul class="modal-content list">
 
             <li class="info">
                 <h3 class="modal-head">INFO</h3>
-                <p class="text-modal">{{description}}</p>
+                  <div class="description">
+                     <p class="text-modal">{{description}}</p>
+                  </div>
             </li>
 
             <li class="info">
@@ -40,7 +42,7 @@
 
                 <div class="info-ticket standart-ticket">
                     <svg class="ticket-icons-svg">
-                        <use href="./icons/sprite-icons.svg#icon-ticket"></use>
+                        <use href="{{svgUrl}}#icon-ticket"></use>
                     </svg>
                     <p class="text-modal">{{priceRanges.type}} {{priceRanges.min}}-{{priceRanges.max}}
                         {{priceRanges.currency}}</p>
@@ -50,9 +52,10 @@
 
                 <div class="info-ticket vip-ticket">
                     <svg class="ticket-icons-svg">
-                        <use href="./icons/sprite-icons.svg#icon-ticket"></use>
+                        <use href="{{svgUrl}}#icon-ticket"></use>
                     </svg>
-                    <p class="text-modak">VIP 1000-1500 UAH</p>
+
+                    <p class="text-modal">VIP 1000-1500 UAH</p>
                 </div>
             </li>
 
