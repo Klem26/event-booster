@@ -25,7 +25,7 @@ function fetchEvents() {
   eventsApiService
     .fetchEventsByKeyWord()
     .then(events => {
-      if (events.lenght === 0) {
+      if (events.length === 0) {
         return;
       }
       pageRender(events);
