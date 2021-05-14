@@ -54,7 +54,7 @@
 }
 
 .thumb {
-  position: relative;
+  // position: relative;
 
   border-radius: 50px 0px;
   width: inherit;
@@ -67,6 +67,14 @@
     width: 100%;
     object-fit: cover;
   }
+
+  @media screen and (min-width: $tablet) {
+    height: 227px;
+  }
+}
+
+.event_card {
+  position: relative;
   &::after {
     content: '';
     position: absolute;
@@ -77,20 +85,6 @@
     width: 108px;
     height: 101px;
   }
-
-  @media screen and (min-width: 768px) {
-    height: 227px;
-    &::after {
-      top: -14px;
-      right: -13px;
-
-      width: 153px;
-      height: 143px;
-    }
-  }
-}
-
-.event_card {
   @media screen and (max-width: $tablet) {
     width: 128px;
     margin-bottom: 30px;
@@ -98,6 +92,13 @@
   @media screen and (min-width: $tablet) {
     width: 192px;
     margin-bottom: 45px;
+    &::after {
+      top: -14px;
+      right: -13px;
+
+      width: 153px;
+      height: 143px;
+    }
   }
   @media screen and (min-width: $desktop) {
     margin-bottom: 50px;
