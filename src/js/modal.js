@@ -6,21 +6,19 @@ const eventsApiService = new EventsApiService();
 const galleryListRef = document.querySelector('.gallery-list');
 const backdropRef = document.querySelector('.backdrop');
 
-// galleryListRef.addEventListener('click', onGalleryClick);
-// galleryListRef.addEventListener('click', onOpenModal);
-// Повесить событие на кнопку закрытия модалки
+galleryListRef.addEventListener('click', onGalleryClick);
 backdropRef.addEventListener('click', onBackdropClick);
 
 function onGalleryClick(event) {
-  const galleryElRef = event.target;
+  const galleryElRef = event.target.closest('.event_card');
 
-  if (galleryElRef.nodeName !== 'DIV') {
-    // Исправить div на li
+  if (!galleryElRef) {
     return;
   }
 
-  const cardId = event.target.dataset.id;
+  const cardId = galleryElRef.dataset.id;
   renderCard(cardId);
+  onOpenModal();
 }
 
 function onOpenModal() {
@@ -66,27 +64,3 @@ function normalizeEventObjects(obj) {
   obj.svgUrl = svg;
   return obj;
 }
-
-(() => {
-  const refs = {
-    card: document.querySelector('.event_card'),
-    modal: document.querySelector('.backdrop'),
-  };
-
-  refs.card.addEventListener('click', toggleModal);
-
-  function toggleModal(event) {
-    let id;
-    let t = event.target;
-    while (t) {
-      if (t.className === 'event_card') {
-        id = t.dataset.id;
-        break;
-      }
-      t = t.parentElement;
-    }
-
-    renderCard(id);
-    refs.modal.classList.toggle('is-hidden');
-  }
-})();
