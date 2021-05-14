@@ -1,7 +1,7 @@
 import Glide from '@glidejs/glide';
 import refs from './refs';
 import EventsApiService from './api/EventsApiService';
-import cardSliderTpl from './templates/cardSliderTpl.hbs';
+import cardSliderTpl from './templates/card-slider-tpl.hbs';
 // const sliderRef = document.querySelector('.js-slider-container');
 
 const eventsApiService = new EventsApiService();
