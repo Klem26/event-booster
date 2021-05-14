@@ -16,8 +16,6 @@ firstEventsList
     const pagination = new Pagination('pagination', options);
     const totalItems = firstEventsList.totalElements;
     pagination.reset(totalItems);
-    console.log('Мероприятия: ', data);
-    console.log('Номер страницы: ', firstEventsList._page);
 
     return pagination;
   })
@@ -25,8 +23,6 @@ firstEventsList
     pagination.on('afterMove', function (eventData) {
       firstEventsList.fetchRandomEvents(eventData.page - 1).then(result => {
         pageRender(result);
-        console.log('Мероприятия: ', result);
-        console.log('Номер страницы: ', firstEventsList._page);
       });
     });
   })

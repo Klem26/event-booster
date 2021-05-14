@@ -36,16 +36,12 @@ function fetchEvents() {
       const pagination = new Pagination('pagination', options);
       const totalItems = eventsApiService.totalElements;
       pagination.reset(totalItems);
-      console.log('Мероприятия: ', events);
-      console.log('Номер страницы: ', eventsApiService._page);
 
       pagination.on('afterMove', function (eventData) {
         eventsApiService
           .fetchEventsByKeyWord(eventData.page - 1)
           .then(events => {
             pageRender(events);
-            console.log('Мероприятия: ', events);
-            console.log('Номер страницы: ', eventsApiService._page);
           });
       });
     })
