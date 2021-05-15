@@ -71,7 +71,12 @@ export default class EventsApiService {
   fetchEventsByCoutry(countryCode) {
     return this.goFetch(
       `${BASE_URL}events.json?countryCode=${countryCode}&keyword=${this.searchQuery}&page=${this._page}&apikey=${API_KEY}`,
-    );
+    ).then(response => {
+      const stringifiedObj = JSON.stringify(response);
+      localStorage.setItem('data', stringifiedObj);
+
+      return response;
+    });
   }
 
   // Получить картинки события по id
