@@ -8,19 +8,19 @@ import scrollToTop from './scroll-top';
 const debounce = require('lodash.debounce');
 
 const eventsApiService = new EventsApiService();
-refs.searchInputRef.addEventListener('input', debounce(onSearch, 500));
+refs.searchInputRef.addEventListener('input', debounce(onSearch, 1000));
 function onSearch(e) {
   e.preventDefault();
   const form = e.target;
-  eventsApiService.query = form.value;
+  const search = form.value.trim().toLowerCase();
+  eventsApiService.query = search;
   // console.log(form.value)
   if (eventsApiService.query !== '') {
     clearResultContainer();
-    clearPagination();
     fetchEvents();
     return;
   }
-  clearResultContainer();
+  // clearResultContainer();
 }
 
 function fetchEvents() {
