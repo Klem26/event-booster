@@ -8,6 +8,7 @@ const refs = {
   searchCountryRef: document.querySelector('.search-country'),
   sliderRef: document.querySelector('.js-slider-container'),
   backdropRef: document.querySelector('.backdrop'),
+  paginationRef: document.querySelector('#pagination'),
 };
 
 export default refs;

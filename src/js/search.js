@@ -16,6 +16,7 @@ function onSearch(e) {
   // console.log(form.value)
   if (eventsApiService.query !== '') {
     clearResultContainer();
+    clearPagination();
     fetchEvents();
     return;
   }
@@ -52,4 +53,8 @@ function fetchEvents() {
 
 function clearResultContainer() {
   refs.containerResult.innerHTML = '';
+}
+
+function clearPagination() {
+  refs.paginationRef.innerHTML = '';
 }
