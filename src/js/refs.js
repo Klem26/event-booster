@@ -9,6 +9,8 @@ const refs = {
   sliderRef: document.querySelector('.js-slider-container'),
   backdropRef: document.querySelector('.backdrop'),
   paginationRef: document.querySelector('#pagination'),
+  clientEventsBtn: document.querySelector('.client-events-btn'),
+  homePageBtn: document.querySelector('.home-page-btn'),
 };
 
 export default refs;

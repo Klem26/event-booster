@@ -7,7 +7,7 @@ import scrollToTop from './scroll-top';
 
 const firstEventsList = new EventsApiService();
 
-firstEventsList
+export default firstEventsList
   .fetchRandomEvents()
   .then(data => {
     pageRender(data);
