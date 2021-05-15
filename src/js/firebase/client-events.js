@@ -14,7 +14,7 @@ clientEventsBtn.addEventListener('click', onClientBtnClick);
 homeButton.addEventListener('click', onHomePageClick);
 
 function onHomePageClick() {
-  const events = firstEventsList.fetchRandomEvents().then(renderPage);
+  firstEventsList.fetchRandomEvents().then(renderPage);
 }
 
 function onClientBtnClick() {
@@ -25,12 +25,17 @@ function onClientBtnClick() {
 
 // Получить id события
 function onGalleryClick(event) {
-  if (event.target.nodeName === 'BUTTON') {
+  if (event.target.classList.contains('add_btn')) {
     const galleryElRef = event.target.closest('.event_card');
     const eventId = galleryElRef.dataset.id;
 
     // Отправляет событие в базу данных;
     Events.create(findEventById(eventId));
+  } else if (event.target.classList.contains('remove_btn')) {
+    const galleryElRef = event.target.closest('.event_card');
+    const eventId = galleryElRef.dataset.id;
+
+    Events.remove(eventId);
   }
 }
 
@@ -49,4 +54,3 @@ function findEventById(id) {
 
   return event[0];
 }
-
