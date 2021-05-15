@@ -1,7 +1,6 @@
 import refs from '../refs';
 import EventsApiService from '../api/EventsApiService';
 import renderPage from '../page-render';
-import renderStartPage from '../first-result';
 import Events from './Events';
 
 refs.containerResult.addEventListener('click', onGalleryClick);
@@ -31,7 +30,7 @@ function onGalleryClick(event) {
     const eventId = galleryElRef.dataset.id;
 
     // Отправляет событие в базу данных;
-    Event.create(findEventById(eventId));
+    Events.create(findEventById(eventId));
   }
 }
 
