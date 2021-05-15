@@ -75,6 +75,21 @@
 
 .event_card {
   position: relative;
+  transition-property: transform;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+  &:hover:after,
+  &:focus:after {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.15);
+    & .thumb {
+      box-shadow: -5px 5px 5px 4px rgba(220, 86, 197, 0.5);
+    }
+  }
   &::after {
     content: '';
     position: absolute;
@@ -91,7 +106,7 @@
   }
   @media screen and (min-width: $tablet) {
     width: 180px;
-    margin:0px 14px 60px 14px;
+    margin: 0px 14px 60px 14px;
     &::after {
       top: -14px;
       right: -13px;
@@ -127,7 +142,7 @@
   }
 }
 
-.add_btn{
+.add_btn {
   width: 100px;
   height: 50px;
 }
