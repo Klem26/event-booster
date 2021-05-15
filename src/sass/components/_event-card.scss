@@ -87,11 +87,11 @@
   }
   @media screen and (max-width: $tablet) {
     width: 128px;
-    margin-bottom: 30px;
+    margin: 0px 7px 40px 7px;
   }
   @media screen and (min-width: $tablet) {
-    width: 192px;
-    margin-bottom: 45px;
+    width: 180px;
+    margin:0px 14px 60px 14px;
     &::after {
       top: -14px;
       right: -13px;
@@ -102,26 +102,27 @@
   }
   @media screen and (min-width: $desktop) {
     margin-bottom: 50px;
+    margin: 0px 35px 63px 35px;
   }
 }
 
 .events_list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  // justify-content: space-between;
 
   @media screen and (max-width: $tablet) {
-    width: 280px;
-    margin-bottom: 60px;
+    width: 284px;
+    margin: 0px -14px 40px -14px;
   }
 
   @media screen and (min-width: $tablet) {
-    width: 595px;
-    margin-bottom: 60px;
+    width: 624px;
+    margin: 0px -28px 20px -28px;
   }
 
   @media screen and (min-width: $desktop) {
-    width: 946px;
-    margin-bottom: 80px;
+    width: 1000px;
+    margin: 0px -70px 45px -70px;
   }
 }
