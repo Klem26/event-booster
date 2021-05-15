@@ -85,10 +85,11 @@
 
   &:hover,
   &:focus {
-    transform: scale(1.15);
+    transform: scale(1.05);
     & .thumb {
       box-shadow: -5px 5px 5px 4px rgba(220, 86, 197, 0.5);
     }
+    cursor: pointer;
   }
   &::after {
     content: '';
