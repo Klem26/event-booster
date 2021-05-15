@@ -1,5 +1,7 @@
 import notificationError from '../notification-func';
-import pageRender from '../page-render';
+import clientListTpl from '../templates/event-client-list.hbs';
+import refs from '../refs';
+// import pageRender from '../page-render';
 
 export default class Events {
   static create(event) {
@@ -16,13 +18,33 @@ export default class Events {
         event.id = response.name;
         return event;
       })
-      .then(addToLocalStorage);
+      .then(addToLocalStorage)
+      .then(response => {
+        this.getEventsFromDatabase().then(console.log);
+      });;
+  }
+
+  static remove(event) {
+    return fetch(
+      `https://event-booster-app-default-rtdb.firebaseio.com/tickets/${event}.json`,
+      {
+        method: 'DELETE',
+      },
+    ).then(response => {
+      this.getEventsFromDatabase().then(console.log);
+    });
+  }
+
+  static getEventsFromDatabase() {
+    return fetch(
+      'https://event-booster-app-default-rtdb.firebaseio.com/tickets.json',
+    ).then(response => response.json());
   }
 
   static renderList() {
     const events = getEventsFromLocalStorage();
 
-    events.length ? pageRender(events) : notificationError();
+    events.length ? clientListRender(events) : notificationError();
   }
 }
 
@@ -35,4 +57,10 @@ function addToLocalStorage(event) {
 
 function getEventsFromLocalStorage() {
   return JSON.parse(localStorage.getItem('clientEvents') || '[]');
+}
+
+function clientListRender(data) {
+  const markup = clientListTpl(data);
+  refs.containerResult.innerHTML = '';
+  refs.containerResult.insertAdjacentHTML('beforeend', markup);
 }
