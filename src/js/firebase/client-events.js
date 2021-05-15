@@ -3,18 +3,12 @@ import EventsApiService from '../api/EventsApiService';
 import renderPage from '../page-render';
 import Events from './Events';
 
-refs.containerResult.addEventListener('click', onGalleryClick);
-
 const clientEventsBtn = refs.clientEventsBtn;
 const homeButton = refs.homePageBtn;
-
-const firstEventsList = new EventsApiService();
-
-clientEventsBtn.addEventListener('click', onClientBtnClick);
-homeButton.addEventListener('click', onHomePageClick);
+const eventsApiService = new EventsApiService();
 
 function onHomePageClick() {
-  firstEventsList.fetchRandomEvents().then(renderPage);
+  eventsApiService.fetchRandomEvents().then(renderPage);
 }
 
 function onClientBtnClick() {
@@ -24,17 +18,18 @@ function onClientBtnClick() {
 // ***
 
 // Получить id события
-function onGalleryClick(event) {
+function onGalleryBtnClick(event) {
   if (event.target.classList.contains('add_btn')) {
     const galleryElRef = event.target.closest('.event_card');
     const eventId = galleryElRef.dataset.id;
 
-    // Отправляет событие в базу данных;
+    // Отправляет событие в базу данных
     Events.create(findEventById(eventId));
   } else if (event.target.classList.contains('remove_btn')) {
     const galleryElRef = event.target.closest('.event_card');
     const eventId = galleryElRef.dataset.id;
 
+    // Удаляем из базы данных
     Events.remove(eventId);
   }
 }
@@ -54,3 +49,7 @@ function findEventById(id) {
 
   return event[0];
 }
+
+refs.containerResult.addEventListener('click', onGalleryBtnClick);
+clientEventsBtn.addEventListener('click', onClientBtnClick);
+homeButton.addEventListener('click', onHomePageClick);

@@ -1,7 +1,6 @@
 import notificationError from '../notification-func';
 import clientListTpl from '../templates/event-client-list.hbs';
 import refs from '../refs';
-// import pageRender from '../page-render';
 
 export default class Events {
   static create(event) {
@@ -20,8 +19,8 @@ export default class Events {
       })
       .then(addToLocalStorage)
       .then(response => {
-        this.getEventsFromDatabase().then(console.log);
-      });;
+        console.log(getEventsFromLocalStorage());
+      });
   }
 
   static remove(event) {
@@ -31,14 +30,15 @@ export default class Events {
         method: 'DELETE',
       },
     ).then(response => {
-      this.getEventsFromDatabase().then(console.log);
-    });
-  }
+      removeFromLocalStorage(event);
+      const eventsNumber = getEventsFromLocalStorage().length;
 
-  static getEventsFromDatabase() {
-    return fetch(
-      'https://event-booster-app-default-rtdb.firebaseio.com/tickets.json',
-    ).then(response => response.json());
+      if (eventsNumber === 0) {
+        refs.containerResult.innerHTML = '';
+      }
+
+      this.renderList();
+    });
   }
 
   static renderList() {
@@ -53,6 +53,13 @@ function addToLocalStorage(event) {
   all.push(event);
 
   localStorage.setItem('clientEvents', JSON.stringify(all));
+}
+
+function removeFromLocalStorage(event) {
+  const all = getEventsFromLocalStorage();
+  const newAll = all.filter(item => item.id !== event);
+
+  localStorage.setItem('clientEvents', JSON.stringify(newAll));
 }
 
 function getEventsFromLocalStorage() {
