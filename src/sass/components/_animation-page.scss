@@ -2,7 +2,7 @@
   perspective: 10000px;
 }
 
-.event_card {
+.all_cards {
   transform: rotateY(0deg);
   animation: rotateY 3000ms /*infinite alternate backwards ease-in-out 1000ms*/;
 }
