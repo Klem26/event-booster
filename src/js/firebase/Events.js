@@ -12,7 +12,7 @@ export default class Events {
   static create(event) {
     checkForUnique(event).then(result => {
       if (result) {
-        notificationError('Already added');
+        notificationError((text = 'Already added'));
         return;
       }
 
@@ -27,6 +27,7 @@ export default class Events {
         .then(response => response.json())
         .then(response => {
           event.dataId = response.name;
+          notificationError('Hooray!', 'Successfully added', '#2bff2f');
 
           return event;
         })
@@ -42,6 +43,7 @@ export default class Events {
       },
     ).then(response => {
       removeFromLocalStorage(event);
+      notificationError('Hey!', 'Event removed', '#ff2bbc');
       const eventsNumber = getClientEvents().length;
 
       if (eventsNumber === 0) {
@@ -61,7 +63,9 @@ export default class Events {
   static renderList() {
     const events = getClientEvents();
 
-    events.length ? clientListRender(events) : notificationError('You don\'t have any events');
+    events.length
+      ? clientListRender(events)
+      : notificationError("You don't have any events");
   }
 }
 
