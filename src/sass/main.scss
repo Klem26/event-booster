@@ -14,7 +14,9 @@
 @import './layouts/main';
 @import './layouts/footer';
 @import './layouts/preloader';
-@import './components/animation.scss';
+@import './components/animation';
+@import './components/animation-page';
 @import './components/go-top';
-@import './layouts/slider.scss';
+@import './layouts/slider';
 @import './components/nav-list';
+@import './components/auth-modal';

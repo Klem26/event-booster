@@ -1,4 +1,5 @@
 .event-location {
+  margin-bottom: 10px;
   font-style: normal;
   font-weight: 600;
   color: $white;
@@ -74,10 +75,11 @@
 }
 
 .event_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
-  transition-property: transform;
-  transition-duration: 200ms;
-  transition-timing-function: linear;
+  transition: transform 200ms linear;
   &:hover:after,
   &:focus:after {
     display: none;
@@ -141,8 +143,4 @@
     width: 1000px;
     margin: 0px -70px 45px -70px;
   }
-}
-.card_button {
-  width: 100px;
-  height: 50px;
 }

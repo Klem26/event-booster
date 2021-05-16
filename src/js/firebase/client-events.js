@@ -1,21 +1,28 @@
 import refs from '../refs';
 import EventsApiService from '../api/EventsApiService';
-import renderPage from '../page-render';
 import Events from './Events';
+import startPageRender from '../first-result';
+import {
+  getLocalStorageData,
+  getClientEvents,
+  addToLocalStorage,
+  removeFromLocalStorage,
+} from '../local-storage';
+import { authFormHandler } from './auth-modal';
 
 const clientEventsBtn = refs.clientEventsBtn;
 const homeButton = refs.homePageBtn;
 const eventsApiService = new EventsApiService();
 
 function onHomePageClick() {
-  eventsApiService.fetchRandomEvents().then(renderPage);
+  startPageRender();
+  showPagination();
 }
 
 function onClientBtnClick() {
   Events.renderList();
+  hidePagination();
 }
-
-// ***
 
 // Получить id события
 function onGalleryBtnClick(event) {
@@ -28,26 +35,34 @@ function onGalleryBtnClick(event) {
   } else if (event.target.classList.contains('remove_btn')) {
     const galleryElRef = event.target.closest('.event_card');
     const eventId = galleryElRef.dataset.id;
+    const dataId = findClientEventById(eventId).dataId;
 
     // Удаляем из базы данных
-    Events.remove(eventId);
+    Events.remove(dataId);
   }
-}
-
-// Получает данные из локал сторедж, массив из 20 элементов
-function getLocaleStorageData() {
-  const data = localStorage.getItem('data');
-  const parsedData = JSON.parse(data);
-
-  return parsedData;
 }
 
 // Принимает id, ищет по нему элемент, возвращает его
 function findEventById(id) {
-  const allEvents = getLocaleStorageData();
+  const allEvents = getLocalStorageData();
   const event = allEvents.filter(item => item.id === id);
 
   return event[0];
+}
+
+function findClientEventById(id) {
+  const allEvents = getClientEvents();
+  const event = allEvents.filter(item => item.id === id);
+
+  return event[0];
+}
+
+function hidePagination() {
+  refs.paginationRef.classList.add('visually-hidden');
+}
+
+function showPagination() {
+  refs.paginationRef.classList.remove('visually-hidden');
 }
 
 refs.containerResult.addEventListener('click', onGalleryBtnClick);
