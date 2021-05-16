@@ -11,6 +11,7 @@ const refs = {
   paginationRef: document.querySelector('#pagination'),
   clientEventsBtn: document.querySelector('.client-events-btn'),
   homePageBtn: document.querySelector('.home-page-btn'),
+  backdrop: document.querySelector('.backdrop'),
 };
 
 export default refs;

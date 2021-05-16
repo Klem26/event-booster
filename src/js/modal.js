@@ -1,13 +1,9 @@
-import EventsApiService from './api/EventsApiService';
 import modalTpl from './templates/modalTpl.hbs';
 import svg from '../icons/sprite-icons.svg';
+import refs from './refs';
 
-const eventsApiService = new EventsApiService();
-const galleryListRef = document.querySelector('.gallery-list');
-const backdropRef = document.querySelector('.backdrop');
-
-galleryListRef.addEventListener('click', onGalleryClick);
-backdropRef.addEventListener('click', onBackdropClick);
+refs.containerResult.addEventListener('click', onGalleryClick);
+refs.backdrop.addEventListener('click', onBackdropClick);
 
 function onGalleryClick(event) {
   const galleryElRef = event.target.closest('.event_card');
@@ -21,26 +17,22 @@ function onGalleryClick(event) {
 }
 
 function onOpenModal() {
-  backdropRef.classList.remove('is-hidden');
+  refs.backdrop.classList.remove('is-hidden');
   window.addEventListener('keydown', onEscPress);
 }
 
 function onCloseModal() {
   window.removeEventListener('keydown', onEscPress);
 
-  backdropRef.classList.add('is-hidden');
-  backdropRef.innerHTML = '';
+  refs.backdrop.classList.add('is-hidden');
+  refs.backdrop.innerHTML = '';
 }
 
 function renderCard(id) {
-  return eventsApiService
-    .fetchEventById(id)
-    .then(normalizeEventObjects)
-    .then(modalTpl)
-    .then(r => {
-      backdropRef.innerHTML = r;
-      onOpenModal();
-    });
+  let obj = findEventById(id);
+  let r = modalTpl(normalizeEventObjects(obj));
+  refs.backdrop.innerHTML = r;
+  onOpenModal();
 }
 
 function onBackdropClick(event) {
@@ -75,7 +67,7 @@ function normalizeEventObjects(obj) {
 }
 
 // Получает данные с локал сторедж, массив из 20 элементов
-function getLocaleStorageData() {
+function getLocalStorageData() {
   const data = localStorage.getItem('data');
   const parsedData = JSON.parse(data);
 
@@ -84,8 +76,8 @@ function getLocaleStorageData() {
 
 // Принимает id, ищет по нему элемент, возвращает его
 function findEventById(id) {
-  const allEvents = getLocaleStorageData();
+  const allEvents = getLocalStorageData();
   const event = allEvents.filter(item => item.id === id);
-  
+
   return event[0];
 }
