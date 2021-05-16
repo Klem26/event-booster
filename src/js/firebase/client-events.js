@@ -8,6 +8,7 @@ import {
   addToLocalStorage,
   removeFromLocalStorage,
 } from '../local-storage';
+import { authFormHandler } from './auth-modal';
 
 const clientEventsBtn = refs.clientEventsBtn;
 const homeButton = refs.homePageBtn;
