@@ -20,5 +20,5 @@ export function authFormHandler(event) {
   const email = event.target.querySelector('#email').value;
   const password = event.target.querySelector('#password').value;
 
-  return authWithEmailAndPassword(email, password);
+   authWithEmailAndPassword(email, password);
 }
