@@ -12,7 +12,7 @@ export default class Events {
   static create(event) {
     checkForUnique(event).then(result => {
       if (result) {
-        notificationError((text = 'Already added'));
+        notificationError('Oops!','Already added');
         return;
       }
 
@@ -80,7 +80,6 @@ function checkForUnique(event) {
     if (result) {
       const clientEvents = Object.values(result);
 
-      console.log(clientEvents);
       const isNotUnique = clientEvents.find(item => item.id === event.id);
 
       if (isNotUnique) {
