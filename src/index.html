@@ -15,6 +15,8 @@
       rel="stylesheet"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
     <title>Event Booster</title>
   </head>
 
@@ -70,7 +72,7 @@
         <form class="search-form">
           <label class="label-form">
             <input
-              class="search-input"
+              class="search-input rainbow-button"
               type="text"
               placeholder="Start searching"
               name="search"
@@ -90,6 +92,9 @@
             <option value="CH">Switzerland</option>
             <option value="ES">Spain</option>
           </select>
+          <svg class="arrow">
+            <use href="./images/sprite-icons.svg#arrow"></use>
+          </svg>
         </form>
 
         <nav class="nav-list">
