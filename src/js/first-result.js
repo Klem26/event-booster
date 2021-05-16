@@ -7,25 +7,29 @@ import scrollToTop from './scroll-top';
 
 const firstEventsList = new EventsApiService();
 
-export default firstEventsList
-  .fetchRandomEvents()
-  .then(data => {
-    pageRender(data);
-    return data;
-  })
-  .then(data => {
-    const pagination = new Pagination('pagination', options);
-    const totalItems = firstEventsList.totalElements;
-    pagination.reset(totalItems);
+export default function startPageRender() {
+   firstEventsList
+     .fetchRandomEvents()
+     .then(data => {
+       pageRender(data);
+       return data;
+     })
+     .then(data => {
+       const pagination = new Pagination('pagination', options);
+       const totalItems = firstEventsList.totalElements;
+       pagination.reset(totalItems);
 
-    return pagination;
-  })
-  .then(pagination => {
-    pagination.on('afterMove', function (eventData) {
-      firstEventsList.fetchRandomEvents(eventData.page - 1).then(result => {
-        pageRender(result);
-        scrollToTop();
-      });
-    });
-  })
-  .catch(notificationError);
+       return pagination;
+     })
+     .then(pagination => {
+       pagination.on('afterMove', function (eventData) {
+         firstEventsList.fetchRandomEvents(eventData.page - 1).then(result => {
+           pageRender(result);
+           scrollToTop();
+         });
+       });
+     })
+     .catch(notificationError);
+}
+ 
+window.addEventListener('DOMContentLoaded', startPageRender);
