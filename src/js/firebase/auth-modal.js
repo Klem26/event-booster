@@ -1,5 +1,4 @@
 import refs from '../refs';
-import createModal from './utils';
 import Events from './Events';
 import { getAuthForm, authWithEmailAndPassword } from './auth';
 
@@ -21,4 +20,14 @@ export function authFormHandler(event) {
   const password = event.target.querySelector('#password').value;
 
    authWithEmailAndPassword(email, password);
+}
+
+function createModal(title, content) {
+  const modal = document.createElement('div');
+    modal.classList.add('auth-modal');
+    
+    const html = `<h1>${title}</h1><div class='modal-content'>${content}</div>`;
+    modal.innerHTML = html;
+
+  mui.overlay('on', modal);
 }
