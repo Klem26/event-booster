@@ -10,14 +10,20 @@ import {
 
 export default class Events {
   static create(event) {
+  // if (!token) {
+  //   return Promise.resolve(
+  //     notificationError('Sorry!', 'Authorization required', '#ff2b3d'),
+  //   );
+  //   }
+    
     checkForUnique(event).then(result => {
       if (result) {
-        notificationError('Oops!','Already added');
+        notificationError('Oops!', 'Already added');
         return;
       }
 
       return fetch(
-        'https://event-booster-app-default-rtdb.firebaseio.com/tickets.json',
+        `https://event-booster-app-default-rtdb.firebaseio.com/tickets.json`,
         {
           method: 'POST',
           body: JSON.stringify(event),
