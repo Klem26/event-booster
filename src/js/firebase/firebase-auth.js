@@ -1,6 +1,5 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import authFormHandler from './auth-modal';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAalBkuxJcYRoG0ELdN_T_crUpSGAEEyCg',
@@ -14,16 +13,21 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-firebase
+export function signUp(email, password){
+  firebase
   .auth()
   .createUserWithEmailAndPassword(email, password)
   .then(userCredential => {
     // Signed in
-    var user = userCredential.user;
+
+    const user = userCredential.user;
+ 
     // ...
   })
   .catch(error => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorMessage);
     // ..
   });
+}
