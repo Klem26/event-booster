@@ -2,7 +2,7 @@ import 'modern-normalize';
 import './sass/main.scss';
 import './js/refs';
 import './js/api/EventsApiService';
-// import './js/modal';
+import './js/modal';
 import './js/preloadet';
 import './js/go-top';
 import './js/pagination';
