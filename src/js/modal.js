@@ -8,7 +8,7 @@ refs.backdrop.addEventListener('click', onBackdropClick);
 function onGalleryClick(event) {
   const galleryElRef = event.target.closest('.event_card');
 
-  if (!galleryElRef) {
+  if (!galleryElRef || event.target.nodeName === 'BUTTON') {
     return;
   }
 
@@ -30,7 +30,8 @@ function onCloseModal() {
 
 function renderCard(id) {
   let obj = findEventById(id);
-  let r = modalTpl(normalizeEventObjects(obj));
+
+  let r = modalTpl(obj);
   refs.backdrop.innerHTML = r;
   onOpenModal();
 }
@@ -51,20 +52,20 @@ function onEscPress(event) {
   }
 }
 
-function normalizeEventObjects(obj) {
-  obj.posterUrlSmall = obj.images
-    .filter(image => image.ratio === '1_1')
-    .reduce((prev, current) =>
-      prev.width > current.width ? prev : current,
-    ).url;
-  obj.posterUrlLarge = obj.images
-    .filter(image => image.ratio === '16_9')
-    .reduce((prev, current) =>
-      prev.width > current.width ? prev : current,
-    ).url;
-  obj.svgUrl = svg;
-  return obj;
-}
+// function normalizeEventObjects(obj) {
+//   obj.posterUrlSmall = obj.images
+//     .filter(image => image.ratio === '1_1')
+//     .reduce((prev, current) =>
+//       prev.width > current.width ? prev : current,
+//     ).url;
+//   obj.posterUrlLarge = obj.images
+//     .filter(image => image.ratio === '16_9')
+//     .reduce((prev, current) =>
+//       prev.width > current.width ? prev : current,
+//     ).url;
+//   obj.svgUrl = svg;
+//   return obj;
+// }
 
 // Получает данные с локал сторедж, массив из 20 элементов
 function getLocalStorageData() {
