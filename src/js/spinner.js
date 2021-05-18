@@ -1,11 +1,3 @@
-<<<<<<< Updated upstream
-
-//import refs from './refs';
-
-// function spinner() {
-//   refs.btnEventCard.addEventListener('click', () => {
-//     refs.spinnerDisplayer.classList.add('ldld');
-=======
 // const loadMoreBtn = new LoadMoreBtn({
 //   selector: '[data-action="load-more"]',
 //   hidden: true,
@@ -86,17 +78,7 @@
 // function spinner() {
 //   refs.galleryEventList.addEventListener('click', () => {
 //     refs.spinnerDisplayer.classList.add('loader');
->>>>>>> Stashed changes
 //   });
 // }
 
 // spinner();
-<<<<<<< Updated upstream
-=======
-// export function showLoader() {
-//   refs.ldld.classList.remove('visually-hidden');
-// }
-// export function hideLoader() {
-//   refs.ldld.classList.add('visually-hidden');
-// }
->>>>>>> Stashed changes
