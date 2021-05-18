@@ -1,26 +1,75 @@
 import refs from '../refs';
-import Events from './Events';
-import { signUp } from './firebase-auth';
+import { signUp, signIn, signOut, onAuthState } from './firebase-auth';
+import notificationError from '../notification-func';
 
-const signInBtn = refs.authBtn;
+const signUpBtn = refs.signUpBtn;
+const signInBtn = refs.signInBtn;
 
-signInBtn.addEventListener('click', openModal);
-
-function openModal() {
+signUpBtn.addEventListener('click', () => {
   createModal('Sign up', getAuthForm());
-  document
-    .getElementById('auth-form')
-    .addEventListener('submit', authFormHandler, { once: true });
-}
 
-export function authFormHandler(event) {
-  event.preventDefault();
+  document.getElementById('auth-form').addEventListener(
+    'submit',
+    event => {
+      event.preventDefault();
 
-  const email = event.target.querySelector('#email').value;
-  const password = event.target.querySelector('#password').value;
+      const email = event.target.querySelector('#email').value;
+      const password = event.target.querySelector('#password').value;
 
-  signUp(email, password);
-}
+      signUp(email, password);
+      notificationError(
+        'Hooray!',
+        'You have successfully signed up',
+        '#80ff37',
+      );
+    },
+    { once: true },
+  );
+});
+
+signInBtn.addEventListener('click', () => {
+  // if (onAuthState()) {
+  // return Promise.resolve(signOut).then(
+  //    notificationError('Good!', 'You have successfully signed out'),
+  //  );
+  // }
+
+  createModal('Sign in', getAuthForm());
+
+  document.getElementById('auth-form').addEventListener(
+    'submit',
+    event => {
+      event.preventDefault();
+
+      const email = event.target.querySelector('#email').value;
+      const password = event.target.querySelector('#password').value;
+
+      signIn(email, password);
+      notificationError(
+        'Hooray!',
+        'You have successfully signed in',
+        '#80ff37',
+      );
+    },
+    { once: true },
+  );
+});
+
+// function openModal(title) {
+//   createModal('Sign up', getAuthForm());
+//   document
+//     .getElementById('auth-form')
+//     .addEventListener('submit', authFormHandler, { once: true });
+// }
+
+// export function authFormHandler(event) {
+//   event.preventDefault();
+
+//   const email = event.target.querySelector('#email').value;
+//   const password = event.target.querySelector('#password').value;
+
+//   signUp(email, password);
+// }
 
 function createModal(title, content) {
   const modal = document.createElement('div');

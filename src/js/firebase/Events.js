@@ -7,15 +7,16 @@ import {
   addToLocalStorage,
   removeFromLocalStorage,
 } from '../local-storage';
+import { onAuthState } from './firebase-auth';
 
 export default class Events {
   static create(event) {
-  // if (!token) {
-  //   return Promise.resolve(
-  //     notificationError('Sorry!', 'Authorization required', '#ff2b3d'),
-  //   );
-  //   }
-    
+    // if (!onAuthState()) {
+    //   return Promise.resolve(
+    //     notificationError('Sorry!', 'Authorization required', '#ff2b3d'),
+    //   );
+    // }
+
     checkForUnique(event).then(result => {
       if (result) {
         notificationError('Oops!', 'Already added');

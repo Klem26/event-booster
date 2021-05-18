@@ -12,7 +12,8 @@ const refs = {
   clientEventsBtn: document.querySelector('.client-events-btn'),
   homePageBtn: document.querySelector('.home-page-btn'),
   backdrop: document.querySelector('.backdrop'),
-  authBtn: document.querySelector('.sign-btn'),
+  signUpBtn: document.querySelector('.signUp-btn'),
+  signInBtn: document.querySelector('.signIn-btn'),
 };
 
 export default refs;

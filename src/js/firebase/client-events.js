@@ -1,18 +1,15 @@
 import refs from '../refs';
-import EventsApiService from '../api/EventsApiService';
 import Events from './Events';
 import startPageRender from '../first-result';
 import {
   getLocalStorageData,
-  getClientEvents,
-  addToLocalStorage,
-  removeFromLocalStorage,
+  getClientEvents
 } from '../local-storage';
-import { authFormHandler } from './auth-modal';
+import { onAuthState } from './firebase-auth';
+import notificationError from '../notification-func';
 
 const clientEventsBtn = refs.clientEventsBtn;
 const homeButton = refs.homePageBtn;
-const eventsApiService = new EventsApiService();
 
 function onHomePageClick() {
   startPageRender();
@@ -20,6 +17,12 @@ function onHomePageClick() {
 }
 
 function onClientBtnClick() {
+  // if (!onAuthState()) {
+  //   return Promise.resolve(
+  //     notificationError('Sorry!', 'Authorization required', '#ff2b3d'),
+  //   );
+  // }
+
   Events.renderList();
   hidePagination();
 }
