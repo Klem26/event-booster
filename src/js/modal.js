@@ -30,9 +30,8 @@ function onCloseModal() {
 
 function renderCard(id) {
   let obj = findEventById(id);
-
-  let r = modalTpl(obj);
-  refs.backdrop.innerHTML = r;
+  obj.svgUrl = svg;
+  refs.backdrop.innerHTML = modalTpl(obj);
   onOpenModal();
 }
 
@@ -51,21 +50,6 @@ function onEscPress(event) {
     onCloseModal();
   }
 }
-
-// function normalizeEventObjects(obj) {
-//   obj.posterUrlSmall = obj.images
-//     .filter(image => image.ratio === '1_1')
-//     .reduce((prev, current) =>
-//       prev.width > current.width ? prev : current,
-//     ).url;
-//   obj.posterUrlLarge = obj.images
-//     .filter(image => image.ratio === '16_9')
-//     .reduce((prev, current) =>
-//       prev.width > current.width ? prev : current,
-//     ).url;
-//   obj.svgUrl = svg;
-//   return obj;
-// }
 
 // Получает данные с локал сторедж, массив из 20 элементов
 function getLocalStorageData() {
