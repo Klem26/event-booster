@@ -1,5 +1,7 @@
 import refs from '../refs';
-import { signUp, signIn, signOut, onAuthState } from './firebase-auth';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import { signUp, signIn, signOut } from './firebase-auth';
 import notificationError from '../notification-func';
 
 const signUpBtn = refs.signUpBtn;
@@ -28,48 +30,32 @@ signUpBtn.addEventListener('click', () => {
 });
 
 signInBtn.addEventListener('click', () => {
-  // if (onAuthState()) {
-  // return Promise.resolve(signOut).then(
-  //    notificationError('Good!', 'You have successfully signed out'),
-  //  );
-  // }
+  const user = firebase.auth().currentUser;
 
-  createModal('Sign in', getAuthForm());
+  if (user) {
+    signOut();
+  } else {
+    createModal('Sign in', getAuthForm());
 
-  document.getElementById('auth-form').addEventListener(
-    'submit',
-    event => {
-      event.preventDefault();
+    document.getElementById('auth-form').addEventListener(
+      'submit',
+      event => {
+        event.preventDefault();
 
-      const email = event.target.querySelector('#email').value;
-      const password = event.target.querySelector('#password').value;
+        const email = event.target.querySelector('#email').value;
+        const password = event.target.querySelector('#password').value;
 
-      signIn(email, password);
-      notificationError(
-        'Hooray!',
-        'You have successfully signed in',
-        '#80ff37',
-      );
-    },
-    { once: true },
-  );
+        signIn(email, password);
+        notificationError(
+          'Hooray!',
+          'You have successfully signed in',
+          '#80ff37',
+        );
+      },
+      { once: true },
+    );
+  }
 });
-
-// function openModal(title) {
-//   createModal('Sign up', getAuthForm());
-//   document
-//     .getElementById('auth-form')
-//     .addEventListener('submit', authFormHandler, { once: true });
-// }
-
-// export function authFormHandler(event) {
-//   event.preventDefault();
-
-//   const email = event.target.querySelector('#email').value;
-//   const password = event.target.querySelector('#password').value;
-
-//   signUp(email, password);
-// }
 
 function createModal(title, content) {
   const modal = document.createElement('div');
@@ -99,23 +85,3 @@ function getAuthForm() {
       </button>
     </form>`;
 }
-
-//  function authWithEmailAndPassword(email, password) {
-//   const apiKey = 'AIzaSyAalBkuxJcYRoG0ELdN_T_crUpSGAEEyCg';
-//   return fetch(
-//     `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`,
-//     {
-//       method: 'POST',
-//       body: JSON.stringify({
-//         email,
-//         password,
-//         returnSecureToken: true,
-//       }),
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     },
-//   )
-//     .then(response => response.json())
-//     .then(data => data.idToken);
-// }
