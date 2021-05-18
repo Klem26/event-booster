@@ -1,11 +1,9 @@
 import refs from '../refs';
 import Events from './Events';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import startPageRender from '../first-result';
-import {
-  getLocalStorageData,
-  getClientEvents
-} from '../local-storage';
-import { onAuthState } from './firebase-auth';
+import { getLocalStorageData, getClientEvents } from '../local-storage';
 import notificationError from '../notification-func';
 
 const clientEventsBtn = refs.clientEventsBtn;
@@ -17,14 +15,14 @@ function onHomePageClick() {
 }
 
 function onClientBtnClick() {
-  // if (!onAuthState()) {
-  //   return Promise.resolve(
-  //     notificationError('Sorry!', 'Authorization required', '#ff2b3d'),
-  //   );
-  // }
+  const user = firebase.auth().currentUser;
 
-  Events.renderList();
-  hidePagination();
+  if (user) {
+    Events.renderList();
+    hidePagination();
+  } else {
+    notificationError('Hey!', 'Authorization is required', '#ff2b3d');
+  }
 }
 
 // Получить id события

@@ -44,22 +44,15 @@ export function signIn(email, password) {
     });
 }
 
-export function onAuthState() {
-  firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-      var uid = user.uid;
-    }
-  });
-}
 
 export function signOut() {
   firebase
     .auth()
     .signOut()
     .then(() => {
-      notificationError('Hey!', 'Sign-out successful');
+      notificationError('Hey!', 'You have successfully signed out');
     })
     .catch(error => {
-      // An error happened.
+      console.log(error)
     });
 }
