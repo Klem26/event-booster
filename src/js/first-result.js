@@ -4,6 +4,8 @@ import Pagination from 'tui-pagination';
 import options from './components/pagination';
 import notificationError from './utils/notification-func';
 import scrollToTop from './utils/scroll-top';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 const firstEventsList = new EventsApiService();
 
@@ -11,6 +13,7 @@ export default function startPageRender() {
   firstEventsList
     .fetchRandomEvents()
     .then(data => {
+      firebase.auth();
       pageRender(data);
       return data;
     })

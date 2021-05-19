@@ -199,11 +199,6 @@ svg {
 }
 
 @media screen and (min-width: $tablet) {
-  .backdrop {
-    padding-top: 100px;
-    padding-bottom: 100px;
-  }
-
   .modal {
     width: 595px;
     height: auto;
