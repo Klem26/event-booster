@@ -24,7 +24,11 @@ export default class EventsApiService {
         this.totalPages = page.totalPages;
 
         return _embedded.events.map(this.normalizeEventObj);
-      }).catch(console.log);
+      })
+      .catch(error => {
+        console.log(error);
+        return [];
+      });
   }
 
   fetchRandomEvents(activePage = 0) {

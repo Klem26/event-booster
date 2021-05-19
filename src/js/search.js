@@ -28,6 +28,7 @@ function fetchEvents() {
     .fetchEventsByKeyWord()
     .then(events => {
       if (events.length === 0) {
+        noResult();
         return;
       }
       pageRender(events);
@@ -65,13 +66,7 @@ function clearPagination() {
   refs.paginationRef.innerHTML = '';
 }
 
-// нет результата я создала доп контейнер
-const containerResult2Ref = document.querySelector('.no-result-js')//   ссылка на блок 
-//если будем отрисовывать в контейнере с результатами то раскоментировать clearPagination() в коде ниже ,
-// и заменить containerResult2Ref -> containerResult , ссылку на блок('.no-result-js')  удалить .
 function noResult() {
-  // clearPagination();
-  containerResult2Ref.innerHTML =
+  refs.containerResult.innerHTML =
     '<div class="no-result-container"><h2 class="resut-text">Sorry, there is no result for your request. Try again :)</h2></div><p class="no-result"></p>';
 }
-// noResult() // раскомметировать и появится блок с котом  варианты котов в _search-form.scss
