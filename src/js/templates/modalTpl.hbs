@@ -5,12 +5,12 @@
         </svg>
     </button>
     <div class="img-small-modal">
-        <img src={{posterUrlSmall}} alt="событие" />
+        <img src={{posterUrl}} alt="событие" />
     </div>
 
     <div class="ticket">
         <div class="thumb-large">
-            <img src={{posterUrlLarge}} object-fit="cover" alt="событие" />
+            <img src={{posterUrl}} object-fit="cover" alt="событие" />
         </div>
 
         <ul class="modal-content list">
@@ -29,7 +29,7 @@
 
             <li class="info">
                 <h3 class="modal-head">WHERE</h3>
-                <p class="text-modal">{{place.city.name}}, {{place.country.name}}</br>{{place.address.line1}}</p>
+                <p class="text-modal">{{_embedded.venues.0.city.name}}, {{_embedded.venues.[0].country.name}}</br>{{_embedded.venues.[0].address.line1}}</p>
             </li>
 
             <li class="info">
@@ -44,8 +44,8 @@
                     <svg class="ticket-icons-svg">
                         <use href="{{svgUrl}}#icon-ticket"></use>
                     </svg>
-                    <p class="text-modal">{{priceRanges.type}} {{priceRanges.min}}-{{priceRanges.max}}
-                        {{priceRanges.currency}}</p>
+                    <p class="text-modal">{{priceRanges.type}} {{priceRanges.[0].min}}-{{priceRanges.[0].max}}
+                        {{priceRanges.[0].currency}}</p>
                 </div>
 
                 <button class="modal-btn ticket-btn">BUY TICKETS</button>
@@ -55,7 +55,7 @@
                         <use href="{{svgUrl}}#icon-ticket"></use>
                     </svg>
 
-                    <p class="text-modal">VIP 1000-1500 UAH</p>
+                    <p class="text-modal">VIP</p>
                 </div>
             </li>
 

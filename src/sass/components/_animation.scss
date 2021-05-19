@@ -1,44 +1,55 @@
-.heading {
+.wrapper {
   // transition: 2s;
   opacity: 0;
-	animation: translating1 1s ease 0s, show 5s 1;
-    animation-fill-mode: forwards; 
-    animation-delay: 1s; 
+  animation: translating1 1s ease 0s, show 5s 1;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+
+.search-form {
+  animation: translating 2s ease 0.2s;
+}
+
+.slider-wrapper {
+  animation: translating 2s ease 0.2s;
+}
+
+.gallery-list {
+  animation: translating 2s ease 0.2s;
+}
+
+@keyframes translating {
+  0% {
+    transform: translate(0, 30px);
   }
-
-  .search-form {
-    animation: translating 2s ease 0.2s ;
+  100% {
+    transform: translate(0, 0);
   }
+}
 
-  .slider-wrapper {
-    animation: translating 2s ease 0.2s ;
+@keyframes show {
+  0% {
+    opacity: 0;
   }
-
-  .gallery-list {
-    animation: translating 2s ease 0.2s ;
+  100% {
+    opacity: 1;
   }
+}
 
-    @keyframes translating {
-      0%  { transform: translate(0, 30px);}
-      100%{ transform: translate(0, 0);}
-    }
-    
-    @keyframes show{
-      0%{ opacity:0; }
-      100% { opacity:1; }
-    }
+@keyframes translating1 {
+  0% {
+    transform: translate(0, -30px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
 
-    @keyframes translating1{
-      0%  { transform: translate(0, -30px);}
-      100%{ transform: translate(0, 0);}
-    }
-
-    
-  // .logo-img {
-  //   animation: scaleLogo 2s linear 0.2s;
-  //   @keyframes scaleLogo {
-  //       0% {transform: scale(1);}
-  //      50% {transform: scale(1.15);}
-  //     100% {transform: scale(1);}
-  //   }
-  // }
+// .logo-img {
+//   animation: scaleLogo 2s linear 0.2s;
+//   @keyframes scaleLogo {
+//       0% {transform: scale(1);}
+//      50% {transform: scale(1.15);}
+//     100% {transform: scale(1);}
+//   }
+// }

@@ -1,18 +1,13 @@
 import refs from '../refs';
-import EventsApiService from '../api/EventsApiService';
 import Events from './Events';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import startPageRender from '../first-result';
-import {
-  getLocalStorageData,
-  getClientEvents,
-  addToLocalStorage,
-  removeFromLocalStorage,
-} from '../local-storage';
-import { authFormHandler } from './auth-modal';
+import { getLocalStorageData, getClientEvents } from '../local-storage';
+import notificationError from '../notification-func';
 
 const clientEventsBtn = refs.clientEventsBtn;
 const homeButton = refs.homePageBtn;
-const eventsApiService = new EventsApiService();
 
 function onHomePageClick() {
   startPageRender();
@@ -20,8 +15,14 @@ function onHomePageClick() {
 }
 
 function onClientBtnClick() {
-  Events.renderList();
-  hidePagination();
+  const user = firebase.auth().currentUser;
+
+  if (user) {
+    Events.renderList();
+    hidePagination();
+  } else {
+    notificationError('Hey!', 'Authorization is required', '#ff2b3d');
+  }
 }
 
 // Получить id события
