@@ -53,7 +53,5 @@ export function signOut() {
       startPageRender();
       notificationError('Hey!', 'You have successfully signed out');
     })
-    .catch(error => {
-      console.log(error);
-    });
+    .catch(console.log);
 }

@@ -7,55 +7,24 @@ import notificationError from '../utils/notification-func';
 const signUpBtn = refs.signUpBtn;
 const signInBtn = refs.signInBtn;
 
-signUpBtn.addEventListener('click', () => {
+signUpBtn.addEventListener('click', onSignUp);
+signInBtn.addEventListener('click', onSignIn);
+
+function onSignUp() {
   createModal('Sign up', getAuthForm());
+  authModalHandler('You have successfully signed up', signUp);
+}
 
-  document.getElementById('auth-form').addEventListener(
-    'submit',
-    event => {
-      event.preventDefault();
-
-      const email = event.target.querySelector('#email').value;
-      const password = event.target.querySelector('#password').value;
-
-      signUp(email, password);
-      notificationError(
-        'Hooray!',
-        'You have successfully signed up',
-        '#5cff98',
-      );
-    },
-    { once: true },
-  );
-});
-
-signInBtn.addEventListener('click', () => {
+function onSignIn() {
   const user = firebase.auth().currentUser;
 
   if (user) {
     signOut();
   } else {
     createModal('Sign in', getAuthForm());
-
-    document.getElementById('auth-form').addEventListener(
-      'submit',
-      event => {
-        event.preventDefault();
-
-        const email = event.target.querySelector('#email').value;
-        const password = event.target.querySelector('#password').value;
-
-        signIn(email, password);
-        notificationError(
-          'Hooray!',
-          'You have successfully signed in',
-          '#5cff98',
-        );
-      },
-      { once: true },
-    );
+    authModalHandler('You have successfully signed in', signIn);
   }
-});
+}
 
 function createModal(title, content) {
   const modal = document.createElement('div');
@@ -65,6 +34,22 @@ function createModal(title, content) {
   modal.innerHTML = html;
 
   mui.overlay('on', modal);
+}
+
+function authModalHandler(text, callback) {
+  document.getElementById('auth-form').addEventListener(
+    'submit',
+    event => {
+      event.preventDefault();
+
+      const email = event.target.querySelector('#email').value;
+      const password = event.target.querySelector('#password').value;
+
+      callback(email, password);
+      notificationError('Hooray!', text, '#5cff98');
+    },
+    { once: true },
+  );
 }
 
 function getAuthForm() {

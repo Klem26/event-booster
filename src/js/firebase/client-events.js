@@ -21,7 +21,7 @@ function onClientBtnClick() {
     Events.renderList();
     hidePagination();
   } else {
-    notificationError('Hey!', 'Authorization is required', '#ff2b3d');
+    notificationError('Sorry!', 'Please sign in', '#ff2b3d');
   }
 }
 

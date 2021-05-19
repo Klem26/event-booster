@@ -39,7 +39,7 @@ export default class Events {
           .then(addToLocalStorage).catch(console.log);
       });
     } else {
-      notificationError('Hey!', 'Authorization is required', '#ff2b3d');
+      notificationError('Sorry!', 'Please sign in', '#ff2b3d');
     }
   }
 
