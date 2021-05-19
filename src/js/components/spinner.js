@@ -1,4 +1,4 @@
-import refs from './refs';
+import refs from '../utils/refs';
 
 export function hideLoader() {
   refs.loader.classList.add('visually-hidden');
