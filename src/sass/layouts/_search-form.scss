@@ -44,14 +44,37 @@
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-    line-height: 19.5px;
+    line-height: 40px; /*НЕ ЗМІНЮВАТИ!!! Тут має бути висота інпута*/
     color: $grey-text-color;
   }
-  /* для різних браузерів можна:
-  &::-webkit-input-placeholder {}
-  &::-moz-placeholder {}
-  &:-moz-placeholder {}
-  &:-ms-input-placeholder {} */
+  &::-webkit-input-placeholder {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 40px; /*НЕ ЗМІНЮВАТИ!!! Тут має бути висота інпута*/
+    color: $grey-text-color;
+  }
+  &::-moz-placeholder {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 40px; /*НЕ ЗМІНЮВАТИ!!! Тут має бути висота інпута*/
+    color: $grey-text-color;
+  }
+  &:-moz-placeholder {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 40px; /*НЕ ЗМІНЮВАТИ!!! Тут має бути висота інпута*/
+    color: $grey-text-color;
+  }
+  &:-ms-input-placeholder {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 40px; /*НЕ ЗМІНЮВАТИ!!! Тут має бути висота інпута*/
+    color: $grey-text-color;
+  }
   &:hover,
   &:focus {
     box-shadow: 0px 0px 10px 3px $accent;
