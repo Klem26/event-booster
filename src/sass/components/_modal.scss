@@ -34,11 +34,14 @@ svg {
 }
 
 .modal {
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   width: 272px;
   height: 915px;
+  max-height: 100%;
+  box-sizing: border-box;
   background-color: $modal-bg;
   border-radius: 150px 0px;
   overflow: auto;
@@ -181,6 +184,7 @@ svg {
   display: block;
   text-align: center;
   width: 102px;
+  height: 102px;
   margin-top: 75px;
   margin-left: auto;
   margin-right: auto;
@@ -244,6 +248,7 @@ svg {
   .img-small-modal {
     text-align: center;
     width: 70px;
+    height: 70px;
     margin-top: 28px;
   }
 }

@@ -31,9 +31,8 @@ function onCloseModal() {
 
 function renderCard(id) {
   let obj = findEventById(id);
-
-  let r = modalTpl(obj);
-  refs.backdrop.innerHTML = r;
+  obj.svgUrl = svg;
+  refs.backdrop.innerHTML = modalTpl(obj);
   onOpenModal();
 }
 
