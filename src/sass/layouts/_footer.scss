@@ -25,7 +25,7 @@
   color: $grey-text-color;
   &:hover,
   &:focus {
-    box-shadow: 0px 0px 10px 3px $accent;
+    box-shadow: -5px 5px 5px 4px rgba(220, 86, 197, 0.5);
     outline-color: $grey-text-color;
   }
 }
