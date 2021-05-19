@@ -69,8 +69,8 @@
 
 .icon-loop {
   position: absolute;
-  top: 102px;
-  left: 240px;
+  top: 36px;
+  left: 232px;
   width: 12px;
   height: 12px;
   display: block;
@@ -78,12 +78,10 @@
   color: $grey-text-color;
   z-index: 100;
   @include breakpoint(tablet) {
-    top: 40px;
-    left: 240px;
+    top: 38px;
   }
   @include breakpoint(desktop) {
-    top: 63px;
-    left: 240px;
+    top: 62px;
   }
   &:hover,
   &:focus {
@@ -145,6 +143,10 @@ option {
   position: absolute;
   right: 24px;
   fill: $grey-text-color;
+
+  @include breakpoint(non-tablet) {
+    top: 104px;
+  }
 }
 
 .no-result-container {
