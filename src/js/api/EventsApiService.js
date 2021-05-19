@@ -66,7 +66,7 @@ export default class EventsApiService {
 
   normalizeEventObj(obj) {
     const image = obj.images
-      .filter(image => image.ratio === '4_3')
+      .filter(image => image.width === 640 && image.height === 427)
       .map(image => image.url);
 
     obj.posterUrl = image[0];
