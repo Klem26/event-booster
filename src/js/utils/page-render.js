@@ -1,4 +1,4 @@
-import eventsTemplate from './templates/event-list.hbs';
+import eventsTemplate from '../templates/event-list.hbs';
 import refs from './refs';
 
 export default function pageRender(data) {

@@ -1,11 +1,25 @@
 .auth-modal {
-  padding-top: 100px;
-  padding-bottom: 100px;
-  max-width: 600px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
+  max-width: 280px;
   margin: 100px auto;
   overflow-y: auto;
   background-color: #ffffff;
   border-radius: 100px 0px 100px 0px;
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    max-width: 480px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    max-width: 580px;
+  }
 
   > h1 {
     text-align: center;
@@ -17,7 +31,7 @@
     padding: 1rem;
   }
 
-  .mui-btn{
+  .mui-btn {
     display: block;
     margin-left: auto;
     margin-right: auto;

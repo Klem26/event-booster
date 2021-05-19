@@ -1,29 +1,13 @@
 .container {
-  padding: 0 86px;
-  @media screen and(min-width:237px) and (max-width: 767px) {
-    padding: 0 34px;
-  }
+  padding: 0 20px;
 }
 .footer-container {
-  position: relative;
-  width: 521px;
   margin: 0 auto;
   text-align: center;
-  padding-top: 120px;
-  @media screen and (width: 768px) {
-    padding-top: 96px;
-  }
-  @media screen and(min-width:237px) and (max-width: 767px) {
-    width: 252px;
-    padding-top: 121px;
-  }
+  padding-bottom: 27px;
 }
 
 .footer-text {
-  position: absolute;
-  top: 60%;
-  left: -2%;
-
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
@@ -31,8 +15,7 @@
   line-height: 1.25;
 
   color: $grey-text-color;
-  @media screen and(min-width:237px) and (max-width: 767px) {
-    top: 40%;
+  @media screen and(min-width:237px) and (max-width: 768px) {
     font-size: 14px;
     line-height: 1.21;
   }
@@ -42,7 +25,7 @@
   color: $grey-text-color;
   &:hover,
   &:focus {
-    box-shadow: 0px 0px 10px 3px $accent;
+    box-shadow: -5px 5px 5px 4px rgba(220, 86, 197, 0.5);
     outline-color: $grey-text-color;
   }
 }

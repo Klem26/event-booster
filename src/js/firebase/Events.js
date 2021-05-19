@@ -1,44 +1,46 @@
-import notificationError from '../notification-func';
+import notificationError from '../utils/notification-func';
 import clientListTpl from '../templates/event-client-list.hbs';
-import refs from '../refs';
+import refs from '../utils/refs';
+import startPageRender from '../first-result';
 import {
-  getLocalStorageData,
   getClientEvents,
   addToLocalStorage,
   removeFromLocalStorage,
-} from '../local-storage';
+} from '../utils/local-storage';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 export default class Events {
   static create(event) {
-  // if (!token) {
-  //   return Promise.resolve(
-  //     notificationError('Sorry!', 'Authorization required', '#ff2b3d'),
-  //   );
-  //   }
-    
-    checkForUnique(event).then(result => {
-      if (result) {
-        notificationError('Oops!', 'Already added');
-        return;
-      }
+  const user = firebase.auth().currentUser;
 
-      return fetch(
-        `https://event-booster-app-default-rtdb.firebaseio.com/tickets.json`,
-        {
-          method: 'POST',
-          body: JSON.stringify(event),
-          headers: { 'Content-Type': 'application/json' },
-        },
-      )
-        .then(response => response.json())
-        .then(response => {
-          event.dataId = response.name;
-          notificationError('Hooray!', 'Successfully added', '#2bff2f');
+    if (user) {
+      checkForUnique(event).then(result => {
+        if (result) {
+          notificationError('Oops!', 'Already added');
+          return;
+        }
 
-          return event;
-        })
-        .then(addToLocalStorage);
-    });
+        return fetch(
+          `https://event-booster-app-default-rtdb.firebaseio.com/tickets.json`,
+          {
+            method: 'POST',
+            body: JSON.stringify(event),
+            headers: { 'Content-Type': 'application/json' },
+          },
+        )
+          .then(response => response.json())
+          .then(response => {
+            event.dataId = response.name;
+            notificationError('Hooray!', 'Successfully added', '#5cff98');
+
+            return event;
+          })
+          .then(addToLocalStorage).catch(console.log);
+      });
+    } else {
+      notificationError('Sorry!', 'Please sign in', '#ff2b3d');
+    }
   }
 
   static remove(event) {
@@ -49,21 +51,22 @@ export default class Events {
       },
     ).then(response => {
       removeFromLocalStorage(event);
-      notificationError('Hey!', 'Event removed', '#ff2bbc');
+      notificationError('Hey!', 'Event removed');
       const eventsNumber = getClientEvents().length;
 
       if (eventsNumber === 0) {
         refs.containerResult.innerHTML = '';
+        startPageRender();
       }
 
       this.renderList();
-    });
+    }).catch(console.log);
   }
 
   static getEventsFromDatabase() {
     return fetch(
       'https://event-booster-app-default-rtdb.firebaseio.com/tickets.json',
-    ).then(response => response.json());
+    ).then(response => response.json()).catch(console.log);
   }
 
   static renderList() {
@@ -71,7 +74,7 @@ export default class Events {
 
     events.length
       ? clientListRender(events)
-      : notificationError("You don't have any events");
+      : notificationError('Sorry', "You don't have any events");
   }
 }
 
@@ -92,5 +95,5 @@ function checkForUnique(event) {
         return isNotUnique;
       }
     }
-  });
+  }).catch(console.log);
 }
