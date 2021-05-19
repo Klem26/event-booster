@@ -32,7 +32,13 @@ function searchEventsByCountry() {
         });
       });
     })
-    .catch(error => notificationError('Error', `${error}`, '#ff2b3d'));
+    .catch(error =>
+      notificationError(
+        'Error',
+        `No results found. Please, enter a new request.`,
+        '#ff2b3d',
+      ),
+    );
 }
 
 refs.searchCountryRef.addEventListener('change', searchEventsByCountry);
