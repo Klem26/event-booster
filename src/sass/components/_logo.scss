@@ -8,16 +8,22 @@
   @media screen and (max-width: 767px) {
     width: 107px;
     height: 90px;
+    padding-top: 25px;
+    padding-left: 25px;
     background-image: url('./../images/bg-logo-mobile.png');
   }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 180px;
     height: 150px;
+    padding-top: 40px;
+    padding-left: 40px;
     background-image: url('./../images/bg-logo-tablet.png');
   }
 
   @media screen and (min-width: 1280px) {
+    padding-top: 40px;
+    padding-left: 40px;
     width: 238px;
     height: 200px;
     background-image: url('./../images/bg-logo-desktop.png');
@@ -26,25 +32,21 @@
 
 .logo-link {
   display: inline-block;
-  width: inherit;
-  height: inherit;
   cursor: pointer;
 }
 
-// .logo-img {
-//   @media screen and (max-width: 767px) {
-//     margin-left: 5px;
-//     margin-top: 8px;
-//   }
-
-//   @media screen and (min-width: 768px) and (max-width: 1279px) {
-//     margin-left: 5px;
-//     margin-top: 8px;
-//   }
-// }
 .svg-logo {
-  width: inherit;
-  height: inherit;
+  width: 60px;
+  height: 27px;
+  @media screen and (min-width: $tablet) {
+    width: 100px;
+    height: 46px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 136px;
+    height: 62px;
+  }
+
   fill: $white;
   .logo-link:hover &,
   .logo-link:focus & {
