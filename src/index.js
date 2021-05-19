@@ -15,5 +15,7 @@ import './js/first-result';
 import './js/utils/scroll-top.js';
 import './js/firebase/Events';
 import './js/firebase/client-events';
-import './js/utils/local-storage';
+import './js/local-storage';
+import './js/firebase/auth';
+import './js/firebase/utils';
 import './js/firebase/auth-modal';
