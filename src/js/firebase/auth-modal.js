@@ -1,25 +1,29 @@
-import refs from '../refs';
-import Events from './Events';
-import { signUp } from './firebase-auth';
+import refs from '../utils/refs';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import { signUp, signIn, signOut } from './firebase-auth';
+import notificationError from '../utils/notification-func';
 
-const signInBtn = refs.authBtn;
+const signUpBtn = refs.signUpBtn;
+const signInBtn = refs.signInBtn;
 
-signInBtn.addEventListener('click', openModal);
+signUpBtn.addEventListener('click', onSignUp);
+signInBtn.addEventListener('click', onSignIn);
 
-function openModal() {
+function onSignUp() {
   createModal('Sign up', getAuthForm());
-  document
-    .getElementById('auth-form')
-    .addEventListener('submit', authFormHandler, { once: true });
+  authModalHandler('You have successfully signed up', signUp);
 }
 
-export function authFormHandler(event) {
-  event.preventDefault();
+function onSignIn() {
+  const user = firebase.auth().currentUser;
 
-  const email = event.target.querySelector('#email').value;
-  const password = event.target.querySelector('#password').value;
-
-  signUp(email, password);
+  if (user) {
+    signOut();
+  } else {
+    createModal('Sign in', getAuthForm());
+    authModalHandler('You have successfully signed in', signIn);
+  }
 }
 
 function createModal(title, content) {
@@ -30,6 +34,22 @@ function createModal(title, content) {
   modal.innerHTML = html;
 
   mui.overlay('on', modal);
+}
+
+function authModalHandler(text, callback) {
+  document.getElementById('auth-form').addEventListener(
+    'submit',
+    event => {
+      event.preventDefault();
+
+      const email = event.target.querySelector('#email').value;
+      const password = event.target.querySelector('#password').value;
+
+      callback(email, password);
+      notificationError('Hooray!', text, '#5cff98');
+    },
+    { once: true },
+  );
 }
 
 function getAuthForm() {
@@ -50,23 +70,3 @@ function getAuthForm() {
       </button>
     </form>`;
 }
-
-//  function authWithEmailAndPassword(email, password) {
-//   const apiKey = 'AIzaSyAalBkuxJcYRoG0ELdN_T_crUpSGAEEyCg';
-//   return fetch(
-//     `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`,
-//     {
-//       method: 'POST',
-//       body: JSON.stringify({
-//         email,
-//         password,
-//         returnSecureToken: true,
-//       }),
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     },
-//   )
-//     .then(response => response.json())
-//     .then(data => data.idToken);
-// }

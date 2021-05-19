@@ -15,7 +15,11 @@
       rel="stylesheet"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <link
+      href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
     <title>Event Booster</title>
   </head>
@@ -35,7 +39,10 @@
           <h1 class="heading">Find best events around the world</h1>
         </div>
         <div class="sign-btn-container">
-          <button class="sign-btn" type="button"><span>Sign in</span></button>
+          <button class="signUp-btn sign-btn" type="button"><span>Sign up</span></button>
+          <button class="signIn-btn sign-btn" type="button">
+            <span>Sign in/out</span>
+          </button>
         </div>
 
         <form class="search-form">
@@ -114,16 +121,62 @@
         </section>
 
         <section class="gallery-section">
+          <div class="no-result-js "></div>
           <div class="container_result">
+            <ul class="events_list"></ul>
           </div>
         </section>
-
         <section class="page-buttons">
           <div id="pagination" class="tui-pagination"></div>
         </section>
       </main>
 
       <footer class="container">
+        <div class="social">
+          <ul class="footer-social list">
+            <li class="item">
+              <a
+                href="https://www.icon-instagram.com/"
+                class="link"
+                type="button"
+                data-action="start"
+                target="_blank"
+                rel="noopener noreferer"
+                aria-label="icon-instagram"
+              >
+                <svg width="20" heigth="20">
+                  <use href="./images/vector/sprite.svg#icon-instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="item">
+              <a
+                href="https://www.icon-twitter.com/"
+                class="link"
+                target="_blank"
+                rel="noopener noreferer"
+                aria-label="icon-twitter"
+              >
+                <svg width="20" heigth="20">
+                  <use href="./images/vector/sprite.svg#icon-twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="item">
+              <a
+                href="https://www.icon-facebook.com/"
+                class="link"
+                target="_blank"
+                rel="noopener noreferer"
+                aria-label="icon-facebook"
+              >
+                <svg width="20" heigth="20">
+                  <use href="./images/vector/sprite.svg#icon-facebook"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
         <div class="footer-container">
           <span class="footer-text">
             © 2021 | All Rights Reserved |
@@ -136,8 +189,6 @@
     </div>
 
     <div class="backdrop is-hidden"></div>
-
-    <!-- <div class="spinner-displayer loading"></div> -->
-    <div class="loader loading visually-hidden">Spinner</div>
+    <!-- <div class="loader loading visually-hidden"></div> -->
   </body>
 </html>

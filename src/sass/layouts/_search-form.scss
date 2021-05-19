@@ -69,13 +69,22 @@
 
 .icon-loop {
   position: absolute;
-  top: 63px;
+  top: 102px;
   left: 240px;
   width: 12px;
   height: 12px;
   display: block;
   float: right;
   color: $grey-text-color;
+  z-index: 100;
+  @include breakpoint(tablet) {
+    top: 40px;
+    left: 240px;
+  }
+  @include breakpoint(desktop) {
+    top: 63px;
+    left: 240px;
+  }
   &:hover,
   &:focus {
     color: $white;
@@ -136,4 +145,54 @@ option {
   position: absolute;
   right: 24px;
   fill: $grey-text-color;
+}
+
+.no-result-container {
+  max-width: 600px;
+  min-height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-image: url(../images/black-cat.gif);
+}
+
+// .no-result {
+//   max-width: 600px;
+//   min-height: 450px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center center;
+//   // background-image: url(../images/2.jpg);
+//   // background-image: url(../images/cat3.jpeg);
+//   background-image: url(../images/black-cat.gif);
+// }
+
+.resut-text {
+  font-style: normal;
+  font-size: 16px;
+  color: $accent;
+  text-shadow: 0 0 10px azure, 0 0 20px $modal-btn, 0 0 40px rgb(226, 14, 226),
+    0 0 80px rgb(63, 63, 194);
+  will-change: filter, color;
+  filter: saturate(60%);
+  color: azure;
+  text-align: center;
+  padding: 10px;
+  @include breakpoint(tablet) {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 0.8;
+    padding: 20px;
+  }
+  @include breakpoint(desktop) {
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.21;
+    padding: 30px;
+  }
 }

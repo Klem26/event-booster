@@ -23,9 +23,17 @@ function removeFromLocalStorage(event) {
   localStorage.setItem('clientEvents', JSON.stringify(newAll));
 }
 
+function findEventById(id) {
+  const allEvents = getLocalStorageData();
+  const event = allEvents.filter(item => item.id === id);
+
+  return event[0];
+}
+
 export {
   getLocalStorageData,
   getClientEvents,
   addToLocalStorage,
   removeFromLocalStorage,
+  findEventById,
 };

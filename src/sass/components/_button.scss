@@ -1,22 +1,45 @@
 .sign-btn-container {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   top: 0;
   right: 0;
   padding: 25px;
+
+  @media screen and (max-width: $tablet) {
+    flex-direction: row;
+    top: 0;
+    right: 0;
+  }
+
   @media screen and (min-width: $tablet) {
-    padding: 40px;
+    flex-direction: column;
   }
 }
+
 .sign-btn {
   font-style: 14px;
-  height: 25px;
-  width: 100px;
+  height: auto;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   border-radius: 12px 0;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
   @media screen and (min-width: $tablet) {
+    width: 100px;
     font-style: 16px;
     height: 40px;
-    width: 120px;
     border-radius: 20px 0;
+      &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
     @media screen and (min-width: $desktop) {
       width: 150px;
     }

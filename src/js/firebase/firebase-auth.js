@@ -1,5 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import startPageRender from '../first-result';
+import notificationError from '../utils/notification-func';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAalBkuxJcYRoG0ELdN_T_crUpSGAEEyCg',
@@ -13,21 +15,43 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-export function signUp(email, password){
+export function signUp(email, password) {
   firebase
-  .auth()
-  .createUserWithEmailAndPassword(email, password)
-  .then(userCredential => {
-    // Signed in
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      const user = userCredential.user;
+      mui.overlay('off');
+    })
+    .catch(error => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      notificationError('Oops!', `${errorCode}: ${errorMessage}`, '#ff2b3d');
+    });
+}
 
-    const user = userCredential.user;
- 
-    // ...
-  })
-  .catch(error => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorMessage);
-    // ..
-  });
+export function signIn(email, password) {
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      const user = userCredential.user;
+      mui.overlay('off');
+    })
+    .catch(error => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      notificationError('Oops!', `${errorCode}: ${errorMessage}`, '#ff2b3d');
+    });
+}
+
+export function signOut() {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      startPageRender();
+      notificationError('Hey!', 'You have successfully signed out');
+    })
+    .catch(console.log);
 }
