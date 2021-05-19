@@ -1,5 +1,4 @@
 import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
 
 const options = {
   totalItems: 0,
@@ -29,5 +28,3 @@ const options = {
 };
 
 export default options;
-// Вызов пагинации
-// const pagination = new Pagination('pagination', options);
