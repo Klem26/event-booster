@@ -1,12 +1,12 @@
-import notificationError from '../notification-func';
+import notificationError from '../utils/notification-func';
 import clientListTpl from '../templates/event-client-list.hbs';
-import refs from '../refs';
+import refs from '../utils/refs';
+import startPageRender from '../first-result';
 import {
-  getLocalStorageData,
   getClientEvents,
   addToLocalStorage,
   removeFromLocalStorage,
-} from '../local-storage';
+} from '../utils/local-storage';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
@@ -32,16 +32,15 @@ export default class Events {
           .then(response => response.json())
           .then(response => {
             event.dataId = response.name;
-            notificationError('Hooray!', 'Successfully added', '#2bff2f');
+            notificationError('Hooray!', 'Successfully added', '#5cff98');
 
             return event;
           })
-          .then(addToLocalStorage);
+          .then(addToLocalStorage).catch(console.log);
       });
     } else {
       notificationError('Hey!', 'Authorization is required', '#ff2b3d');
     }
-    
   }
 
   static remove(event) {
@@ -52,21 +51,22 @@ export default class Events {
       },
     ).then(response => {
       removeFromLocalStorage(event);
-      notificationError('Hey!', 'Event removed', '#ff2bbc');
+      notificationError('Hey!', 'Event removed');
       const eventsNumber = getClientEvents().length;
 
       if (eventsNumber === 0) {
         refs.containerResult.innerHTML = '';
+        startPageRender();
       }
 
       this.renderList();
-    });
+    }).catch(console.log);
   }
 
   static getEventsFromDatabase() {
     return fetch(
       'https://event-booster-app-default-rtdb.firebaseio.com/tickets.json',
-    ).then(response => response.json());
+    ).then(response => response.json()).catch(console.log);
   }
 
   static renderList() {
@@ -74,7 +74,7 @@ export default class Events {
 
     events.length
       ? clientListRender(events)
-      : notificationError("Sorry","You don't have any events");
+      : notificationError('Sorry', "You don't have any events");
   }
 }
 
@@ -95,5 +95,5 @@ function checkForUnique(event) {
         return isNotUnique;
       }
     }
-  });
+  }).catch(console.log);
 }

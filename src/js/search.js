@@ -1,10 +1,10 @@
-import refs from './refs';
-import pageRender from './page-render';
+import refs from './utils/refs';
+import pageRender from './utils/page-render';
 import EventsApiService from './api/EventsApiService';
-import notificationError from './notification-func';
+import notificationError from './utils/notification-func';
 import Pagination from 'tui-pagination';
-import options from './pagination';
-import scrollToTop from './scroll-top';
+import options from './components/pagination';
+import scrollToTop from './utils/scroll-top';
 const debounce = require('lodash.debounce');
 
 const eventsApiService = new EventsApiService();
@@ -14,7 +14,7 @@ function onSearch(e) {
   const form = e.target;
   const search = form.value.trim().toLowerCase();
   eventsApiService.query = search;
-  // console.log(form.value)
+
   if (eventsApiService.query !== '') {
     clearResultContainer();
     fetchEvents();
@@ -48,7 +48,7 @@ function fetchEvents() {
           });
       });
     })
-    .catch(notificationError);
+    .catch(error => notificationError('Error', `${error}`, '#ff2b3d'));
 }
 
 function clearResultContainer() {

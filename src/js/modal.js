@@ -1,6 +1,7 @@
 import modalTpl from './templates/modalTpl.hbs';
 import svg from '../icons/sprite-icons.svg';
-import refs from './refs';
+import refs from './utils/refs';
+import { findEventById } from './utils/local-storage';
 
 refs.containerResult.addEventListener('click', onGalleryClick);
 refs.backdrop.addEventListener('click', onBackdropClick);
@@ -49,20 +50,4 @@ function onEscPress(event) {
   if (event.code === 'Escape') {
     onCloseModal();
   }
-}
-
-// Получает данные с локал сторедж, массив из 20 элементов
-function getLocalStorageData() {
-  const data = localStorage.getItem('data');
-  const parsedData = JSON.parse(data);
-
-  return parsedData;
-}
-
-// Принимает id, ищет по нему элемент, возвращает его
-function findEventById(id) {
-  const allEvents = getLocalStorageData();
-  const event = allEvents.filter(item => item.id === id);
-
-  return event[0];
 }

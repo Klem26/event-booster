@@ -1,8 +1,8 @@
-import refs from '../refs';
+import refs from '../utils/refs';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { signUp, signIn, signOut } from './firebase-auth';
-import notificationError from '../notification-func';
+import notificationError from '../utils/notification-func';
 
 const signUpBtn = refs.signUpBtn;
 const signInBtn = refs.signInBtn;
@@ -22,7 +22,7 @@ signUpBtn.addEventListener('click', () => {
       notificationError(
         'Hooray!',
         'You have successfully signed up',
-        '#80ff37',
+        '#5cff98',
       );
     },
     { once: true },
@@ -49,7 +49,7 @@ signInBtn.addEventListener('click', () => {
         notificationError(
           'Hooray!',
           'You have successfully signed in',
-          '#80ff37',
+          '#5cff98',
         );
       },
       { once: true },
