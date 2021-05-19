@@ -19,3 +19,4 @@ import './js/firebase/client-events';
 import './js/utils/local-storage';
 import './js/firebase/auth-modal';
 import './js/firebase/firebase-auth';
+import './js/search-animation';
