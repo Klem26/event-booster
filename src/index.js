@@ -3,7 +3,7 @@ import './sass/main.scss';
 import './js/utils/refs';
 import './js/components/spinner';
 import './js/api/EventsApiService';
-import './js/modal';
+import './js/components/modal';
 import './js/utils/preloadet';
 import './js/components/go-top';
 import './js/components/pagination';

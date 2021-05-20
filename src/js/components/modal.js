@@ -1,7 +1,7 @@
-import modalTpl from './templates/modalTpl.hbs';
-import svg from '../icons/sprite-icons.svg';
-import refs from './utils/refs';
-import { findEventById } from './utils/local-storage';
+import modalTpl from '../templates/modalTpl.hbs';
+import svg from '../../icons/sprite-icons.svg';
+import refs from '../utils/refs';
+import { findEventById } from '../utils/local-storage';
 
 refs.containerResult.addEventListener('click', onGalleryClick);
 refs.backdrop.addEventListener('click', onBackdropClick);
