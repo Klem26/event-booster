@@ -8,6 +8,7 @@ export default class EventsApiService {
     this._page = 0;
     this.totalElements = 0;
     this.totalPages = 0;
+    this.country = '';
   }
 
   goFetch(url) {
@@ -61,6 +62,8 @@ export default class EventsApiService {
   }
 
   fetchEventsByCoutry(countryCode) {
+    this.country = countryCode;
+    
     return this.goFetch(
       `${BASE_URL}events.json?countryCode=${countryCode}&keyword=${this.searchQuery}&page=${this._page}&apikey=${API_KEY}`,
     ).then(response => {

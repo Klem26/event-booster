@@ -6,7 +6,6 @@ import options from './components/pagination';
 import notificationError from './utils/notification-func';
 import scrollToTop from './utils/scroll-top';
 
-
 export default function searchEventsByCountry(countryCode) {
   refs.containerResult.innerHTML = '';
   const queryValue = refs.searchInputRef.value;
