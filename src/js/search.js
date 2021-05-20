@@ -68,5 +68,5 @@ function clearPagination() {
 
 function noResult() {
   refs.containerResult.innerHTML =
-    '<div class="no-result-container"><h2 class="resut-text">Sorry, there is no result for your request. Try again :)</h2></div><p class="no-result"></p>';
+    '<div class=""><h2 class="resut-text">Sorry, there is no result for your request. Try again :)</h2><p class=" no-result-container"></p></div>';
 }
