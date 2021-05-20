@@ -2,7 +2,7 @@ import { Spinner } from 'spin.js';
 import refs from '../utils/refs';
 
 let opts = {
-  lines: 14, // The number of lines to draw
+  lines: 18, // The number of lines to draw
   length: 3, // The length of each line
   width: 9, // The line thickness
   radius: 98, // The radius of the inner circle
