@@ -21,10 +21,10 @@
     padding-bottom: 0px;
     padding-left: 40px;
   }
-   .footer-social {
+  .footer-social {
     display: flex;
     text-align: center;
-    
+
     @media screen and (max-width: 1199px) {
       justify-content: center;
     }
@@ -50,10 +50,9 @@
   background: $black;
   fill: $white;
   transition: $timing-function;
- 
-  &:hover,
-  &:focus {
+
+  &:hover::-moz-tree-row,
+  &:focus::-moz-tree-row {
     background-color: $accent;
-    
   }
 }

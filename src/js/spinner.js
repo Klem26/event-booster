@@ -34,7 +34,7 @@
 //   getRefs(selector) {
 //     const refs = {};
 //     refs.button = document.querySelector(selector);
-//     refs.label = refs.button.querySelector('.label');
+//     refs.event_card = refs.button.querySelector('.event_card');
 //     refs.spinner = refs.button.querySelector('.spinner');
 
 //     return refs;
@@ -42,13 +42,13 @@
 
 //   enable() {
 //     this.refs.button.disabled = false;
-//     this.refs.label.textContent = 'Показать ещё';
+//     // this.refs.label.textContent = 'Показать ещё';
 //     this.refs.spinner.classList.add('is-hidden');
 //   }
 
 //   disable() {
 //     this.refs.button.disabled = true;
-//     this.refs.label.textContent = 'Загружаем...';
+//     // this.refs.label.textContent = 'Загружаем...';
 //     this.refs.spinner.classList.remove('is-hidden');
 //   }
 
@@ -64,14 +64,6 @@
 // //const btnEventCard = document.querySelector('.event_card');
 
 // loaderRef.addEventListener('click', onCardSpinner);
-
-// function onCardSpinner() {
-//   setTimeout(() => {
-//     loader.style.display = 'none';
-//     event_card.style.display = 'block';
-//   }, 1000);
-// }
-// onCardSpinner();
 
 // const galleryEventList = document.querySelector('.event_list');
 // const spinnerDisplayer = document.querySelector('.loader');
