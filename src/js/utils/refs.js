@@ -12,6 +12,8 @@ const refs = {
   signUpBtn: document.querySelector('.signUp-btn'),
   signInBtn: document.querySelector('.signIn-btn'),
   spinnerLoader: document.querySelector('.loader-spinner'),
+  authBtn: document.querySelector('.sign-btn'),
+  selectСountry: document.querySelector('.dropdown'),
 };
 
 export default refs;
