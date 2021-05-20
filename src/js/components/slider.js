@@ -33,6 +33,7 @@ glide.mount();
 eventsApiService
   .fetchRandomEvents()
   .then(response => {
+    console.log(response)
     refs.sliderRef.innerHTML = cardSliderTpl(response);
   })
   .catch(err => {
