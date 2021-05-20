@@ -61,4 +61,7 @@
   &:focus::-moz-tree-row {
     background-color: $accent;
   }
+
+  -text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
