@@ -88,9 +88,17 @@
   &:focus::-webkit-input-placeholder {
     color: $white;
   }
-  &:hover::-moz-input-placeholder,
-  &:focus::-moz-input-placeholder {
-    color: #fff;
+  &:hover::-moz-placeholder,
+  &:focus::-moz-placeholder {
+    color: $white;
+  }
+  &:hover:-moz-placeholder,
+  &:focus:-moz-placeholder {
+    color: $white;
+  }
+  &:hover:-ms-input-placeholder,
+  &:focus:-ms-input-placeholder {
+    color: $white;
   }
 }
 
@@ -159,7 +167,6 @@ option {
   color: $black;
   background-color: $white;
 }
-
 
 .no-result-container {
   max-width: 600px;

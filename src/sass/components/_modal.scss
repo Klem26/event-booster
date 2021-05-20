@@ -141,6 +141,16 @@ svg {
   transition: background-color $timing-function, color $timing-function;
 }
 
+a.modal-link {
+  color: $modal-btn;
+}
+
+a.modal-link:hover,
+a.modal-link:focus {
+  color: $white;
+  background-color: $modal-btn;
+}
+
 .author {
   display: block;
   padding-top: 10px;
