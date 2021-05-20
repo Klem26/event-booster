@@ -11,6 +11,8 @@ const refs = {
   backdrop: document.querySelector('.backdrop'),
   signUpBtn: document.querySelector('.signUp-btn'),
   signInBtn: document.querySelector('.signIn-btn'),
+  authBtn: document.querySelector('.sign-btn'),
+  selectСountry: document.querySelector('.dropdown'),
 };
 
 export default refs;
