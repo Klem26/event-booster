@@ -2,6 +2,7 @@
 @import './utils/mixins';
 @import './utils/variables';
 @import './base/common';
+@import './components/spinner';
 @import './components/button';
 @import './components/event-card';
 @import './components/logo';
@@ -9,7 +10,6 @@
 @import './layouts/header';
 @import './layouts/container-results';
 @import './components/modal';
-@import './components/spinner';
 @import './layouts/header';
 @import './layouts/search-form';
 @import './layouts/main';

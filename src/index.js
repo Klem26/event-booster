@@ -1,6 +1,7 @@
 import 'modern-normalize';
 import './sass/main.scss';
 import './js/utils/refs';
+import './js/components/spinner';
 import './js/api/EventsApiService';
 import './js/modal';
 import './js/utils/preloadet';
@@ -8,7 +9,6 @@ import './js/components/go-top';
 import './js/components/pagination';
 import './js/components/slider';
 import './js/utils/page-render';
-import './js/components/spinner';
 import './js/search';
 import './js/search-country';
 import './js/first-result';

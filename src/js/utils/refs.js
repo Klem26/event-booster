@@ -11,6 +11,7 @@ const refs = {
   backdrop: document.querySelector('.backdrop'),
   signUpBtn: document.querySelector('.signUp-btn'),
   signInBtn: document.querySelector('.signIn-btn'),
+  spinnerLoader: document.querySelector('.loader-spinner'),
 };
 
 export default refs;

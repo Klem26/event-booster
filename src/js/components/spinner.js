@@ -1,13 +1,14 @@
-import {Spinner} from 'spin.js';
+import { Spinner } from 'spin.js';
+import refs from '../utils/refs';
 
-var opts = {
-  lines: 20, // The number of lines to draw
-  length: 12, // The length of each line
-  width: 14, // The line thickness
-  radius: 35, // The radius of the inner circle
-  scale: 1, // Scales overall size of the spinner
+let opts = {
+  lines: 14, // The number of lines to draw
+  length: 5, // The length of each line
+  width: 6, // The line thickness
+  radius: 38, // The radius of the inner circle
+  scale: 1.2, // Scales overall size of the spinner
   corners: 1, // Corner roundness (0..1)
-  speed: 1, // Rounds per second
+  speed: 1.2, // Rounds per second
   rotate: 32, // The rotation offset
   animation: 'spinner-line-fade-quick', // The CSS animation name for the lines
   direction: 1, // 1: clockwise, -1: counterclockwise
@@ -21,5 +22,14 @@ var opts = {
   position: 'absolute', // Element positioning
 };
 
-var target = document.getElementById('loader');
-var spinner = new Spinner(opts).spin(target);
+let spinner = new Spinner(opts);
+let runningSpinner;
+
+export function startSpinner() {
+  runningSpinner = spinner.spin(refs.spinnerLoader);
+}
+
+export function stopSpinner() {
+  runningSpinner.stop();
+  runningSpinner = null;
+}
