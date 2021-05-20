@@ -3,9 +3,9 @@ import refs from '../utils/refs';
 
 let opts = {
   lines: 14, // The number of lines to draw
-  length: 5, // The length of each line
-  width: 6, // The line thickness
-  radius: 38, // The radius of the inner circle
+  length: 3, // The length of each line
+  width: 9, // The line thickness
+  radius: 98, // The radius of the inner circle
   scale: 1.2, // Scales overall size of the spinner
   corners: 1, // Corner roundness (0..1)
   speed: 1.2, // Rounds per second
