@@ -1,84 +1,35 @@
-// const loadMoreBtn = new LoadMoreBtn({
-//   selector: '[data-action="load-more"]',
-//   hidden: true,
-// });
+import { Spinner } from 'spin.js';
+import refs from '../utils/refs';
 
-// defaults.delay = 1000;
-// defaults.icon = false;
-// defaults.styling = 'material';
+let opts = {
+  lines: 14, // The number of lines to draw
+  length: 3, // The length of each line
+  width: 9, // The line thickness
+  radius: 98, // The radius of the inner circle
+  scale: 1.2, // Scales overall size of the spinner
+  corners: 1, // Corner roundness (0..1)
+  speed: 1.2, // Rounds per second
+  rotate: 32, // The rotation offset
+  animation: 'spinner-line-fade-quick', // The CSS animation name for the lines
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  color: '#dc98da', // CSS color or array of colors
+  fadeColor: 'transparent', // CSS color or array of colors
+  top: '52%', // Top position relative to parent
+  left: '50%', // Left position relative to parent
+  shadow: '0 0 1px transparent', // Box-shadow for the lines
+  zIndex: 2000000000, // The z-index (defaults to 2e9)
+  className: 'spinner', // The CSS class to assign to the spinner
+  position: 'absolute', // Element positioning
+};
 
-// const refs = getRefs();
-// const newsApiService = new NewsApiService();
-// refs.container.addEventListener('click', onClickImg);
+let spinner = new Spinner(opts);
+let runningSpinner;
 
-// function onClickImg(e) {
-//   if (e.target.nodeName != 'IMG') {
-//     return;
-//   }
-//   const src = e.target.dataset.src;
-//   console.log(src);
-//   const instance = basicLightbox.create(
-//     `<img src='${src}' width ="400" height="300">`,
-//   );
-//   console.dir(instance);
-//   instance.show();
-// }
+export function startSpinner() {
+  runningSpinner = spinner.spin(refs.spinnerLoader);
+}
 
-// export default class LoadMoreBtn {
-//   constructor({ selector, hidden = false }) {
-//     this.refs = this.getRefs(selector);
-
-//     hidden && this.hide();
-//   }
-
-//   getRefs(selector) {
-//     const refs = {};
-//     refs.button = document.querySelector(selector);
-//     refs.label = refs.button.querySelector('.label');
-//     refs.spinner = refs.button.querySelector('.spinner');
-
-//     return refs;
-//   }
-
-//   enable() {
-//     this.refs.button.disabled = false;
-//     this.refs.label.textContent = 'Показать ещё';
-//     this.refs.spinner.classList.add('is-hidden');
-//   }
-
-//   disable() {
-//     this.refs.button.disabled = true;
-//     this.refs.label.textContent = 'Загружаем...';
-//     this.refs.spinner.classList.remove('is-hidden');
-//   }
-
-//   show() {
-//     this.refs.button.classList.remove('is-hidden');
-//   }
-
-//   hide() {
-//     this.refs.button.classList.add('is-hidden');
-//   }
-// }
-// const loader = document.querySelector('.loader');
-// //const btnEventCard = document.querySelector('.event_card');
-
-// loaderRef.addEventListener('click', onCardSpinner);
-
-// function onCardSpinner() {
-//   setTimeout(() => {
-//     loader.style.display = 'none';
-//     event_card.style.display = 'block';
-//   }, 1000);
-// }
-// onCardSpinner();
-
-// const galleryEventList = document.querySelector('.event_list');
-// const spinnerDisplayer = document.querySelector('.loader');
-// function spinner() {
-//   refs.galleryEventList.addEventListener('click', () => {
-//     refs.spinnerDisplayer.classList.add('loader');
-//   });
-// }
-
-// spinner();
+export function stopSpinner() {
+  runningSpinner.stop();
+  runningSpinner = null;
+}

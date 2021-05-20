@@ -38,4 +38,9 @@
   &:focus {
     background-color: $accent;
   }
+
+  &:hover::-moz-tree-row,
+  &:focus::-moz-tree-row {
+    background-color: $accent;
+  }
 }

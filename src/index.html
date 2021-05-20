@@ -125,7 +125,9 @@
           <h1 class="heading">Find best events around the world</h1>
         </div>
         <div class="sign-btn-container">
-          <button class="signUp-btn sign-btn" type="button"><span>Sign up</span></button>
+          <button class="signUp-btn sign-btn" type="button">
+            <span>Sign up</span>
+          </button>
           <button class="signIn-btn sign-btn" type="button">
             <span>Sign in/out</span>
           </button>
@@ -141,7 +143,7 @@
             />
             <span class="material-icons icon-loop"> search </span>
           </label>
-          <select name="country" class="search-country selected-country">
+          <select name="country" class="search-country selected-country" placeholder="Choose country">
             <option selected disabled>Choose country</option>
             <option value="US">United States</option>
             <option value="CA">Canada</option>
@@ -154,9 +156,9 @@
             <option value="CH">Switzerland</option>
             <option value="ES">Spain</option>
           </select>
-          <svg class="arrow">
+          <!-- <svg class="arrow">
             <use href="./images/sprite-icons.svg#arrow"></use>
-          </svg>
+          </svg> -->
         </form>
 
         <nav class="nav-list">
@@ -207,6 +209,9 @@
         </section>
 
         <section class="gallery-section">
+
+          <div class="no-result-js"></div>
+
           <div class="container_result">
             <ul class="events_list"></ul>
           </div>
@@ -274,6 +279,6 @@
     </div>
 
     <div class="backdrop is-hidden"></div>
-    <!-- <div class="loader loading visually-hidden"></div> -->
+    <div class="loader-spinner"></div>
   </body>
 </html>

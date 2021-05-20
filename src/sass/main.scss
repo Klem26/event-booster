@@ -2,6 +2,7 @@
 @import './utils/mixins';
 @import './utils/variables';
 @import './base/common';
+@import './components/spinner';
 @import './components/button';
 @import './components/event-card';
 @import './components/logo';
@@ -21,3 +22,5 @@
 @import './components/nav-list';
 @import './components/auth-modal';
 @import './components/social';
+@import './components/search-animation.scss';
+// @import './components/search-animation1.scss';

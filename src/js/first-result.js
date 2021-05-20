@@ -6,15 +6,18 @@ import notificationError from './utils/notification-func';
 import scrollToTop from './utils/scroll-top';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import { stopSpinner, startSpinner } from './components/spinner';
 
 const firstEventsList = new EventsApiService();
 
 export default function startPageRender() {
+  startSpinner();
   firstEventsList
     .fetchRandomEvents()
     .then(data => {
       firebase.auth();
       pageRender(data);
+      stopSpinner();
       return data;
     })
     .then(data => {
@@ -29,7 +32,10 @@ export default function startPageRender() {
         });
       });
     })
-    .catch(error => notificationError('Error', `${error}`, '#ff2b3d'));
+    .catch(error => {
+      notificationError('Error', `${error}`, '#ff2b3d');
+      stopSpinner();
+    });
 }
 
 window.addEventListener('DOMContentLoaded', startPageRender);

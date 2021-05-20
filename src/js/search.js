@@ -6,6 +6,7 @@ import Pagination from 'tui-pagination';
 import options from './components/pagination';
 import scrollToTop from './utils/scroll-top';
 const debounce = require('lodash.debounce');
+import isValid from './components/validation';
 
 const eventsApiService = new EventsApiService();
 refs.searchInputRef.addEventListener('input', debounce(onSearch, 1000));
@@ -15,7 +16,7 @@ function onSearch(e) {
   const search = form.value.trim().toLowerCase();
   eventsApiService.query = search;
 
-  if (eventsApiService.query !== '') {
+  if (eventsApiService.query !== '' && isValid(search)) {
     clearResultContainer();
     fetchEvents();
     return;
