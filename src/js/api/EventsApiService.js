@@ -23,11 +23,14 @@ export default class EventsApiService {
         this.totalElements = page.totalElements;
         this.totalPages = page.totalPages;
 
-        return _embedded.events.map(this.normalizeEventObj);
+        if (_embedded) {
+          return _embedded.events.map(this.normalizeEventObj);
+        }
+
+        return [];
       })
       .catch(error => {
         console.log(error);
-        return [];
       });
   }
 
