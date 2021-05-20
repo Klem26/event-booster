@@ -6,13 +6,11 @@ import options from './components/pagination';
 import notificationError from './utils/notification-func';
 import scrollToTop from './utils/scroll-top';
 
-function searchEventsByCountry() {
-  refs.containerResult.innerHTML = '';
 
+export default function searchEventsByCountry(countryCode) {
+  refs.containerResult.innerHTML = '';
   const queryValue = refs.searchInputRef.value;
-  const country =
-    refs.searchCountryRef.options[refs.searchCountryRef.selectedIndex];
-  const countryCode = country.value;
+  
   const countryEvents = new EventsApiService();
   countryEvents.query = queryValue;
   countryEvents

@@ -1,4 +1,6 @@
-$('select.selected-country').each(function() {
+import searchEventsByCountry from './search-country';
+
+$('select.selected-country').each(function () {
 
     var dropdown = $('<div />').addClass('dropdown');
 
@@ -6,9 +8,6 @@ $('select.selected-country').each(function() {
 
     var label = $('<span />').text($(this).attr('placeholder')).insertAfter($(this));
     var list = $('<ul />');
-    
-    console.log ( $(this))
-    console.log ( $(this).find($('option')).val())
 
     $(this).find('option').each(function() {
         list.append($('<li />').append($('<a/>').text($(this).text()).attr('Value', $(this).val())));
@@ -19,6 +18,10 @@ $('select.selected-country').each(function() {
 
 $(document).on('click touch', '.dropdown ul li a', function(e) {
     e.preventDefault();
+
+    const countryCode = e.target.getAttribute('value');
+    searchEventsByCountry(countryCode);
+
     var dropdown = $(this).parent().parent().parent();
     var active = $(this).parent().hasClass('active');
     var label = active ? dropdown.find('select').attr('placeholder') : $(this).text();
