@@ -7,6 +7,7 @@ import './js/utils/preloadet';
 import './js/components/go-top';
 import './js/components/pagination';
 import './js/components/slider';
+import './js/components/validation';
 import './js/utils/page-render';
 import './js/components/spinner';
 import './js/search';
