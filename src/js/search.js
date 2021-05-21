@@ -7,6 +7,7 @@ import options from './components/pagination';
 import scrollToTop from './utils/scroll-top';
 const debounce = require('lodash.debounce');
 import isValid from './components/validation';
+import { stopSpinner, startSpinner } from './components/spinner';
 
 const eventsApiService = new EventsApiService();
 refs.searchInputRef.addEventListener('input', debounce(onSearch, 1000));
@@ -25,14 +26,17 @@ function onSearch(e) {
 }
 
 function fetchEvents() {
+  startSpinner();
   eventsApiService
     .fetchEventsByKeyWord()
     .then(events => {
       if (events.length === 0) {
         noResult();
+        stopSpinner();
         return;
       }
       pageRender(events);
+      stopSpinner();
 
       return events;
     })
@@ -50,13 +54,14 @@ function fetchEvents() {
           });
       });
     })
-    .catch(error =>
+    .catch(error => {
       notificationError(
         'Error',
         `No results found. Please, enter a new request.`,
         '#ff2b3d',
-      ),
-    );
+      );
+      stopSpinner();
+    });
 }
 
 function clearResultContainer() {
