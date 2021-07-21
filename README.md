@@ -1,1 +1,1 @@
-my webpack starter kit
+Event Booster
